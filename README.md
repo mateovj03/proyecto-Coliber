@@ -1,2 +1,2 @@
 # proyecto-Coliber
-Proyecto Coliber grupo #5
+Generation Colombia. Trabajo Colaborativo Grupo N°5                                                                                                                  / Integrantes: Diana Diamate Carvajal - Kendry Vargas Gaviria - Gabriela Hernández -  Mateo Valencia Jiménez - Nicolas David Peñuela
