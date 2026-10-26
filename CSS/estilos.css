@@ -1,0 +1,35 @@
+:root {
+    --verde-principal: #29BBAF;
+    --verde-secundario: #5DBA44;
+    --verde-oscuro: #08866D;
+    --azul: #2A2C8F;
+    --morado: #BB52C2;
+    --blanco: #FFFFFF;
+    --gris: #F5F7FA;
+    --azul-claro: #DEFFFA;
+}
+
+#acerca-de-nosotros {
+    background-color: var(--azul-claro);
+}
+
+#acerca-de-nosotros p {
+    color: var(--azul);
+}
+
+#acerca-de-nosotros h1,
+#historia h2 {
+    color: var(--azul);
+}
+
+#acerca-de-nosotros h1 span {
+    color: var(--verde-principal);
+}
+
+#historia p {
+    color: var(--azul);
+}
+
+#historia {
+    background-color: var(--gris);
+}
