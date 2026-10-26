@@ -1,0 +1,486 @@
+/* Paleta de Colores */
+
+:root{
+
+    --verde-principal:#29BBAF;
+    --verde-secundario:#5DBA44;
+    --verde-oscuro:#08866D;
+
+    --azul:#2A2C8F;
+    --morado:#BB52C2;
+
+    --blanco:#FFFFFF;
+    --gris:#F5F7FA;
+
+}
+
+/* Estilo en General */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI', sans-serif;
+    background-color:var(--gris);
+}
+
+a{
+    text-decoration:none;
+}
+
+/* Header */
+
+header{
+    background-color:var(--blanco);
+    width:100%;
+}
+
+/* Barra Superior */
+
+.barra-superior{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+
+    padding:15px 50px;
+
+    background-color:var(--blanco);
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+/* Logo */
+
+.logo img{
+    height:60px;
+    width:auto;
+    display:block;
+}
+
+/* Buscador */
+
+.buscador{
+
+    display:flex;
+    align-items:center;
+
+    flex:1;
+
+    max-width:500px;
+
+    border:2px solid var(--verde-principal);
+    border-radius:50px;
+
+    overflow:hidden;
+
+    background:white;
+}
+
+.buscador input{
+
+    flex:1;
+
+    border:none;
+    outline:none;
+
+    padding:12px 15px;
+
+    font-size:15px;
+}
+
+.btn-buscar{
+
+    background-color:var(--verde-principal);
+
+    color:white;
+
+    border:none;
+
+    padding:12px 18px;
+
+    cursor:pointer;
+}
+
+.btn-buscar:hover{
+
+    background-color:var(--verde-oscuro);
+}
+
+/* Usuario Y Carrito de Compras */
+
+.btn-nav{
+
+    background-color:var(--morado);
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    font-weight:600;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    transition:.3s;
+}
+
+.btn-nav:hover{
+
+    background-color:#9f34a8;
+    color:white;
+}
+
+/* Menú Principal */
+
+.menu-principal{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+    padding:20px;
+
+    background-color:var(--blanco);
+}
+
+.menu-principal a{
+
+    background-color:var(--morado);
+
+    color:white;
+
+    padding:12px 30px;
+
+    border-radius:5px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.menu-principal a:hover{
+
+    background-color:var(--azul);
+}
+
+/* Secciones */
+
+section{
+
+    min-height:500px;
+
+    padding:80px 30px;
+}
+
+section h1{
+
+    color:var(--azul);
+
+    text-align:center;
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+}
+
+section h2{
+
+    color:var(--azul);
+
+    text-align:center;
+
+    font-size:2rem;
+
+    margin-bottom:20px;
+}
+
+/* Footer */
+
+footer{
+
+    background-color:var(--azul);
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+}
+
+/* Responsive en Tablet */
+
+@media(max-width:992px){
+
+    .barra-superior{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+    .buscador{
+
+        width:100%;
+        max-width:100%;
+    }
+
+}
+
+/* Responsive en Celular */
+
+@media(max-width:768px){
+
+    .barra-superior{
+
+        flex-direction:column;
+
+        padding:20px;
+    }
+
+    .buscador{
+
+        width:100%;
+    }
+
+    .menu-principal{
+
+        flex-direction:column;
+
+        gap:12px;
+    }
+
+    .menu-principal a{
+
+        width:250px;
+
+        text-align:center;
+    }
+
+    .btn-nav{
+
+        width:250px;
+
+        justify-content:center;
+    }
+
+    section h1{
+
+        font-size:2rem;
+    }
+
+    section h2{
+
+        font-size:1.5rem;
+    }
+
+}
+
+
+/*=================================
+           Carrusel
+=================================*/
+
+#informacion-coliber{
+
+    padding:80px 20px;
+
+    background-color:#F5F7FA;
+}
+
+.titulo-seccion{
+
+    text-align:center;
+
+    color:#2A2C8F;
+
+    font-size:2.5rem;
+
+    font-weight:bold;
+
+    margin-bottom:40px;
+}
+
+/* Tarjeta de Carrusel */
+
+.card-coliber{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    background:#FFFFFF;
+
+    border:1px solid #E3EAF5;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+/* Iconos */
+
+.icono-card{
+
+    min-width:110px;
+
+    height:110px;
+
+    border-radius:50%;
+
+    background:#DDF5F1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.icono-card i{
+
+    font-size:50px;
+
+    color:#08866D;
+}
+
+/* Variante morada */
+
+.icono-morado{
+
+    background:#F1DDF6;
+}
+
+.icono-morado i{
+
+    color:#BB52C2;
+}
+
+/* Contenido */
+
+.contenido-card{
+
+    flex:1;
+}
+
+.contenido-card h3{
+
+    color:#2A2C8F;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+}
+
+.contenido-card p{
+
+    color:#2A2C8F;
+
+    font-size:1.1rem;
+
+    line-height:1.7;
+
+    margin:0;
+}
+
+/* Flechas del Carrusel */
+
+.carousel-control-prev,
+.carousel-control-next{
+
+    width:8%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+
+    background-color:#29BBAF;
+
+    border-radius:50%;
+
+    padding:22px;
+
+    background-size:55%;
+}
+
+/* Indicadores*/
+
+.carousel-indicators button{
+
+    background-color:#29BBAF !important;
+
+    width:12px !important;
+
+    height:12px !important;
+
+    border-radius:50%;
+}
+
+/* Efecto del Hoover*/
+
+.card-coliber:hover{
+
+    transform:translateY(-5px);
+
+    transition:0.3s ease;
+}
+
+/* Responsive */
+
+@media (max-width:768px){
+
+    .card-coliber{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        padding:25px;
+    }
+
+    .icono-card{
+
+        min-width:90px;
+
+        width:90px;
+
+        height:90px;
+    }
+
+    .icono-card i{
+
+        font-size:40px;
+    }
+
+    .contenido-card h3{
+
+        font-size:1.6rem;
+    }
+
+    .contenido-card p{
+
+        font-size:1rem;
+    }
+}
