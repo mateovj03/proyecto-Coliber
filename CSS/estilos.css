@@ -509,3 +509,126 @@ footer{
 #historia {
     background-color: var(--gris);
 }
+
+
+/* Seccion contacto  y personas*/
+
+.seccion-equipo {
+  background: #fff;
+}
+
+.titulo-seccion {
+  max-width: 680px;
+}
+
+.etiqueta-seccion {
+  color: #123a7a;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.titulo-seccion h1 {
+  color: #123a7a;
+}
+
+.tarjeta-persona {
+  border: 1px solid #dce9f3;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(10, 40, 91, .08);
+}
+
+.avatar {
+  display: grid;
+  width: 92px;
+  height: 92px;
+  place-items: center;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  box-shadow: 0 0 0 2px #12b8b2;
+}
+
+.avatar-azul { background: #265b8a; }
+.avatar-morado { background: #985bb8; }
+.avatar-verde { background: #20a160; }
+.avatar-naranja { background: #dc8538; }
+.avatar-turquesa { background: #2799a0; }
+
+.tarjeta-persona h2 {
+  color: #123a7a;
+}
+
+.cargo {
+  color: #18a264;
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.seccion-contacto {
+  background: #f2f8fc;
+}
+
+.tarjeta-contacto {
+  border: 1px solid #dce9f3;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(10, 40, 91, .1);
+}
+
+.introduccion-contacto {
+  color: #fff;
+  background: #123a7a;
+}
+
+.etiqueta-clara {
+  color: #7ce2d9;
+}
+
+.icono-contacto {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  border-radius: 50%;
+  color: #0a285b;
+  background: #9af1df;
+  font-size: 1.7rem;
+}
+
+.form-label {
+  color: #123a7a;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.form-control,
+.form-select {
+  min-height: 50px;
+  border-color: #caddec;
+  border-radius: 11px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #12b8b2;
+  box-shadow: 0 0 0 .22rem rgba(18, 184, 178, .14);
+}
+
+.boton-coliber {
+  color: #fff;
+  border-color: #18a264;
+  background: #18a264;
+}
+
+.foto-equipo {
+  display: block;
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #12b8b2;
+}
