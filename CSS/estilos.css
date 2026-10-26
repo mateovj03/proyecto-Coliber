@@ -11,7 +11,7 @@
 
     --blanco:#FFFFFF;
     --gris:#F5F7FA;
-
+    --azul-claro: #DEFFFA;
 }
 
 /* Estilo en General */
@@ -483,4 +483,29 @@ footer{
 
         font-size:1rem;
     }
+}
+
+#acerca-de-nosotros {
+    background-color: var(--azul-claro);
+}
+
+#acerca-de-nosotros p {
+    color: var(--azul);
+}
+
+#acerca-de-nosotros h1,
+#historia h2 {
+    color: var(--azul);
+}
+
+#acerca-de-nosotros h1 span {
+    color: var(--verde-principal);
+}
+
+#historia p {
+    color: var(--azul);
+}
+
+#historia {
+    background-color: var(--gris);
 }
