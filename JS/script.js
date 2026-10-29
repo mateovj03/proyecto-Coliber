@@ -4,6 +4,7 @@ if (formularioContacto) {
     const nombre = document.getElementById("nombre");
     const correo = document.getElementById("correo");
     const tipoConsulta = document.getElementById("tipoConsulta");
+    const telefono = document.getElementById("telefono");
     const mensaje = document.getElementById("mensaje");
     const mensajeFormulario = document.getElementById("mensajeFormulario");
     const botonEnviar = formularioContacto.querySelector('button[type="submit"]');
@@ -13,27 +14,48 @@ if (formularioContacto) {
     formularioContacto.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        const nombreValido = nombre.value.trim() !== "";
-        const correoValido = formatoCorreo.test(correo.value.trim()) && correo.validity.valid;
-        const tipoConsultaValido = tipoConsulta.value !== "";
-        const mensajeValido = mensaje.value.trim() !== "";
+        let formularioValido = true;
+        const digitosTelefono = telefono.value.replace(/\s/g, "");
 
-        nombre.classList.toggle("is-invalid", !nombreValido);
-        correo.classList.toggle("is-invalid", !correoValido);
-        tipoConsulta.classList.toggle("is-invalid", !tipoConsultaValido);
-        mensaje.classList.toggle("is-invalid", !mensajeValido);
-        formularioContacto.classList.add("was-validated");
+        if (nombre.value.trim() === "") {
+            nombre.classList.add("is-invalid");
+            formularioValido = false;
+        } else {
+            nombre.classList.remove("is-invalid");
+        }
+
+        if (!formatoCorreo.test(correo.value.trim()) || !correo.validity.valid) {
+            correo.classList.add("is-invalid");
+            formularioValido = false;
+        } else {
+            correo.classList.remove("is-invalid");
+        }
+
+        if (tipoConsulta.value === "") {
+            tipoConsulta.classList.add("is-invalid");
+            formularioValido = false;
+        } else {
+            tipoConsulta.classList.remove("is-invalid");
+        }
+
+        if (digitosTelefono !== "" && !/^\d+$/.test(digitosTelefono)) {
+            telefono.classList.add("is-invalid");
+            formularioValido = false;
+        } else {
+            telefono.classList.remove("is-invalid");
+        }
+
+        if (mensaje.value.trim() === "") {
+            mensaje.classList.add("is-invalid");
+            formularioValido = false;
+        } else {
+            mensaje.classList.remove("is-invalid");
+        }
 
         mensajeFormulario.classList.remove("text-success", "text-danger");
         mensajeFormulario.textContent = "";
 
-        if (
-            !nombreValido ||
-            !correoValido ||
-            !tipoConsultaValido ||
-            !mensajeValido ||
-            !formularioContacto.checkValidity()
-        ) {
+        if (!formularioValido || !formularioContacto.checkValidity()) {
             mensajeFormulario.classList.add("text-danger");
             mensajeFormulario.textContent = "Revisa los campos marcados e intenta nuevamente.";
             return;
