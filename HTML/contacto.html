@@ -55,7 +55,7 @@
 
     <nav class="menu-principal">
 
-        <a href="../HTML/index.html">Inicio</a>
+        <a href="inicio.html">Inicio</a>
 
         <a href="../HTML/">Catálogo</a>  <!-- PENDIENTE DE CORREGIR AL CREAR PAG -->
 
@@ -66,6 +66,8 @@
         <a href="recomendaciones.html">Recomendaciones</a> <!-- PENDIENTE DE CORREGIR AL CREAR PAG -->
 
         <a href="contacto.html" class="activo">Contacto</a> <!-- PENDIENTE DE CORREGIR  AL CREAR PAG -->
+
+        <a href="acercaDeNosotros.html">Acerca de nosotros</a>
 
     </nav>
 
@@ -270,7 +272,6 @@
                     <label for="correo" class="form-label">
                          Correo electrónico
                     </label>
-                    <!--Cambio en el name para que Formspree tome el campo como correo-->>
                     <input
                         id="correo"
                         name="email"
@@ -336,6 +337,10 @@
                         class="form-control"
                         type="tel"
                         placeholder="300 000 0000">
+
+                    <div class="invalid-feedback">
+                        Ingresa un número de celular válido.
+                    </div>
 
                 </div>
 
@@ -513,9 +518,7 @@
     </div>
 
 </footer>
-
 <script src="../JS/script.js"></script>
-
 </body>
 
 </html>
