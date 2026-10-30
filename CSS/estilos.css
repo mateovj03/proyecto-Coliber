@@ -940,6 +940,9 @@ section h2{
 
 #acerca-de-nosotros {
     background-color: var(--azul-claro);
+    min-height: 250px;
+    display: flex;
+    align-items: center;
 }
 
 #acerca-de-nosotros p {
@@ -949,6 +952,10 @@ section h2{
 #acerca-de-nosotros h1,
 #historia h2 {
     color: var(--azul);
+}
+
+#historia h2 {
+    text-align: left;
 }
 
 #acerca-de-nosotros h1 span {
@@ -961,6 +968,7 @@ section h2{
 
 #historia {
     background-color: var(--gris);
+    min-height: 250px;
 }
 
 
