@@ -746,6 +746,43 @@ section h2{
     }
 
 }
+/*nav deslizante en dispositivos pequeños*/
+@media (max-width: 768px) {
+    .menu-principal {
+        display: flex;
+        flex-direction: row;        
+        flex-wrap: nowrap;          
+        overflow-x: auto;           
+        justify-content: flex-start;
+        gap: 25px;                  
+        padding: 15px 30px ;
+        white-space: nowrap;        
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .menu-principal {
+        scrollbar-width: none;
+    }
+    .menu-principal::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu-principal a {
+        width: auto;                
+        max-width: none;
+        flex-shrink: 0;             
+        scroll-snap-align: start;
+        background: transparent;
+        border: none;
+        border-bottom: 3px solid transparent;
+    }
+
+    .menu-principal a:last-child {
+        margin-right: 30px;
+    }
+}
+
 
 /*=================================
            Carrusel
@@ -1208,27 +1245,32 @@ section h2{
 
 .contact-info{
 
-    width: 90%;
+    width: 95%;
+    max-width: 1300px;
     margin: 5rem auto;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
 }
 
 .contact-card{
 
     background: #ffffff;
-    border-radius: 25px;
-    padding: 30px 25px;
+    border-radius: 20px;
+    padding: 25px 20px;
     text-align: center;
-    min-height: 480px;
+    height: 100%;
+    min-height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    gap: 15px;
     border-top: 5px solid var(--verde-principal);
     box-shadow: 0 12px 25px rgba(0,0,0,.08);
     transition: 0.3s ease;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .contact-card:hover{
@@ -1239,10 +1281,11 @@ section h2{
 
 .contact-card img{
 
-    width: 220px;
-    height: 220px;
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
     object-fit: contain;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .contact-card h3{
@@ -1252,15 +1295,20 @@ section h2{
     font-weight: 700;
     margin-bottom: 15px;
 }
+.contact-card p, .contact-card a {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
 
 .contact-card p,
 
 .contact-card span{
     
     color: #4d5877;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 500;
-    line-height: 1.8;
+    line-height: 1.6;
     margin-bottom: 10px;
 }
 
@@ -1560,12 +1608,14 @@ section h2{
     width:100%;
     max-width:1200px;
     margin:5rem auto;
+    padding: 0 1rem;
 }
 
 .banner-lectura img{
 
     width:100%;
-    height:600px;
+    height: auto;
+    max-height: 500px;
     object-fit:cover;
     border-radius:30px;
     display:block;
