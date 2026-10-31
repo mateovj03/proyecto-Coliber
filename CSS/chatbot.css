@@ -37,11 +37,6 @@
     --chat--input--send--button--color-hover: #FFFFFF;
 }
 
-.whatsapp-float {
-    bottom: 20px;
-    right: 100px;
-}
-
 /* Redondeado mensajes chat Bot*/
 .n8n-chat .chat-message.chat-message-from-bot {
     border-bottom-left-radius: 20px;

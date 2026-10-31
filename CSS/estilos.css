@@ -1777,8 +1777,8 @@ section h2{
 .whatsapp-float{
 
     position:fixed;
-    bottom:25px;
-    right:25px;
+    bottom:20px;
+    right:100px;
     width:65px;
     height:65px;
     border-radius:50%;
