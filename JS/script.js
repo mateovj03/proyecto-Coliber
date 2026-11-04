@@ -95,3 +95,71 @@ if (formularioContacto) {
         }
     });
 }
+
+
+//----------------------------------------------------------------------------------------------------------------
+// Página de Inicio 
+//------------------------------------------------------------------------------------------------------------
+// Carrusel 
+//------------------------------------------------------------------------------------------------------------
+
+// DOM
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+let currentSlide = 0;
+
+function showSlide(index) {
+
+    slides.forEach((slide) => {
+        slide.classList.remove("active");
+    });
+
+    dots.forEach((dot) => {
+        dot.classList.remove("active");
+    });
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+}
+
+// Flecha Derecha
+nextBtn.addEventListener("click", () => {
+
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+
+    showSlide(currentSlide);
+
+});
+
+// Flecha Izquierda
+prevBtn.addEventListener("click", () => {
+
+    currentSlide--;
+
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+
+    showSlide(currentSlide);
+
+});
+
+// Cambio automático cada 5 segundos
+setInterval(() => {
+
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+
+    showSlide(currentSlide);
+
+}, 5000);
