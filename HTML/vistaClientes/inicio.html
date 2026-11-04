@@ -9,8 +9,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <link rel="stylesheet" href="../CSS/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"> <!-- Estilos N8N -->
+    <link rel="stylesheet" href="../../CSS/estilos.css">
+    <link rel="stylesheet" href="../../CSS/chatbot.css"> <!-- Estilos Chat bot -->
 
 </head>
 
@@ -25,7 +26,7 @@
         <div class="barra-superior">
 
             <a href="#inicio" class="logo">
-                <img src="../IMG/logo.png" alt="Logo Coliber">
+                <img src="../../IMG/logo.png" alt="Logo Coliber">
             </a>
 
             <form class="buscador">
@@ -38,15 +39,19 @@
 
             </form>
 
-            <a href="#login" class="btn-nav usuario">
-                <i class="bi bi-person-circle"></i>
-                Usuario
-            </a>
+            <div class="acciones-superiores">
 
-            <a href="#carrito" class="btn-nav carrito">
-                <i class="bi bi-cart3"></i>
-                Carrito
-            </a>
+                <a href="#login" class="btn-nav usuario">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Mi cuenta</span>
+                </a>
+
+                <a href="#carrito" class="btn-nav carrito">
+                    <i class="bi bi-cart3"></i>
+                    <span>Carrito</span>
+                </a>
+
+            </div>
 
         </div>
 
@@ -54,19 +59,35 @@
 
         <nav class="menu-principal">
 
-            <a href="inicio.html">Inicio</a>
+            <a href="inicio.html" class="activo">
+                <i class="bi bi-house-door"></i>
+                <span>Inicio</span>
+            </a>
 
-            <a href="#catalogo">Catálogo</a>
+            <a href="catalogo.html">
+                <i class="bi bi-book"></i>
+                <span>Catálogo</span>
+            </a>
 
-            <a href="#comunidad">Comunidad</a>
+            <a href="comunidad.html">
+                <i class="bi bi-people"></i>
+                <span>Comunidad</span>
+            </a>
 
-            <a href="#autores">Autores</a>
+            <a href="autores.html">
+                <i class="bi bi-feather"></i>
+                <span>Autores</span>
+            </a>
 
-            <a href="#recomendaciones">Recomendaciones</a>
+            <a href="contacto.html">
+                <i class="bi bi-envelope"></i>
+                <span>Contacto</span>
+            </a>
 
-            <a href="contacto.html">Contacto</a>
-
-            <a href="acercaDeNosotros.html">Acerca de nosotros</a>
+            <a href="acercaDeNosotros.html">
+                <i class="bi bi-info-circle"></i>
+                <span>Acerca de nosotros</span>
+            </a>
         </nav>
 
     </header>
@@ -87,17 +108,17 @@
 
             <!-- Banner 1 -->
             <div class="slide active">
-                <img src="../IMG/Banner PI 1.png" alt="Explorar Cátalogo de Coliber">
+                <img src="../../IMG/Banner PI 1.png" alt="Explorar Cátalogo de Coliber">
             </div>
 
             <!-- Banner 2 -->
             <div class="slide">
-                <img src="../IMG/Banner PI 2.png" alt="Nuevos Lanzamientos Literarios">
+                <img src="../../IMG/Banner PI 2.png" alt="Nuevos Lanzamientos Literarios">
             </div>
 
             <!-- Banner 3 -->
             <div class="slide">
-                <img src="../IMG/Banner PI 3.png" alt="Descuentos Exclusivos">
+                <img src="../../IMG/Banner PI 3.png" alt="Descuentos Exclusivos">
             </div>
 
         </div>
@@ -113,6 +134,13 @@
             <span class="dot"></span>
             <span class="dot"></span>
         </div>
+        <!-- Botón Whatsapp -->
+
+        <a href="https://wa.me/573001234567" class="whatsapp-float" target="_blank">
+
+            <i class="bi bi-whatsapp"></i>
+
+        </a>
 
     </section>
 
@@ -121,7 +149,7 @@
    <section class="beneficios">
 
     <article class="beneficio">
-        <img src="../IMG/Beneficio1 (1).png" alt="Envíos seguros">
+        <img src="../../IMG/Beneficio1 (1).png" alt="Envíos seguros">
 
         <h3>Envíos seguros</h3>
 
@@ -129,7 +157,7 @@
     </article>
 
     <article class="beneficio">
-        <img src="../IMG/Beneficio 2.png" alt="Pagos confiables">
+        <img src="../../IMG/Beneficio 2.png" alt="Pagos confiables">
 
         <h3>Pagos confiables</h3>
 
@@ -137,7 +165,7 @@
     </article>
 
     <article class="beneficio">
-        <img src="../IMG/Beneficio 3.png" alt="Amplio catálogo">
+        <img src="../../IMG/Beneficio 3.png" alt="Amplio catálogo">
 
         <h3>Amplio catálogo</h3>
 
@@ -145,7 +173,7 @@
     </article>
 
     <article class="beneficio">
-        <img src="../IMG/Beneficio 4.png" alt="Comunidad lectora">
+        <img src="../../IMG/Beneficio 4.png" alt="Comunidad lectora">
 
         <h3>Comunidad lectora</h3>
 
@@ -169,7 +197,7 @@
             <!-- Romance -->
             <article class = "categoria-card">
 
-                <img src="../IMG/CRomance.png" alt="Categoría Romance" > 
+                <img src="../../IMG/CRomance.png" alt="Categoría Romance" > 
                      
                     <h3>Romance</h3>
 
@@ -178,7 +206,7 @@
             <!-- Fantasía -->
             <article class = "categoria-card" >
 
-                <img src="../IMG/CFantasia.png" alt="Categoría Fantasía" >
+                <img src="../../IMG/CFantasia.png" alt="Categoría Fantasía" >
 
                     <h3>Fantasía</h3>
                 
@@ -187,7 +215,7 @@
             <!-- Terror -->
             <article  class = "categoria-card">
 
-                <img src="../IMG/CTerror.png" alt="Categoría Terror" >
+                <img src="../../IMG/CTerror.png" alt="Categoría Terror" >
 
                     <h3>Terror</h3>
                 
@@ -196,7 +224,7 @@
             <!-- Crecimiento Personal -->
             <article class = "categoria-card">
 
-                <img src="../IMG/CCrecimiento.png" alt="Categoría Crecimiento Personal" >
+                <img src="../../IMG/CCrecimiento.png" alt="Categoría Crecimiento Personal" >
 
                     <h3>Crecimiento Personal</h3>
                 
@@ -212,7 +240,7 @@
         <div class="footer-contenido">
             <div class="footer-marca">
                 <a href="#inicio" class="footer-logo">
-                    <img src="../IMG/logo.png" alt="Logo de Coliber">
+                    <img src="../../IMG/logo.png" alt="Logo de Coliber">
                 </a>
 
                 <p class="footer-eslogan">
@@ -221,9 +249,18 @@
                 </p>
 
                 <div class="footer-redes">
-                    <a href="#" aria-label="Facebook">f</a>
-                    <a href="#" aria-label="Instagram">◎</a>
-                    <a href="#" aria-label="YouTube">▶</a>
+                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="mailto:colibercolombia@gmail.com" aria-label="Correo electrónico">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
                 </div>
             </div>
 
@@ -254,7 +291,7 @@
                     tu próxima historia favorita.
                 </p>
 
-                <a href="contacto.html" class="footer-boton">
+                <a href="#catalogo" class="footer-boton">
                     Explorar Coliber <span>→</span>
                 </a>
             </div>
@@ -266,9 +303,12 @@
             <span>✦</span>
         </div>
     </footer>
+    <!-- Chat bot emergente -->
+    <div id="chat-coliber"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../JS/script.js"></script> <!-- Esto nos enlaza con nuestro js -->
+    <script src="../../JS/script.js"></script> <!-- Esto nos enlaza con nuestro js -->
+    <script type="module" src="../../JS/chatbot.js"></script> <!-- Js chatbot -->
 
 </body>
 
