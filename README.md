@@ -5,6 +5,6 @@ Link Figma: https://www.figma.com/design/8116qcceZitNZFoW6OQl5G/Wireframes---Gru
 
 Links GitHub Pages (Deploy) 
 
-acerca de nosotros: https://mateovj03.github.io/proyecto-Coliber/HTML/acercaDeNosotros.html
+acerca de nosotros: https://mateovj03.github.io/proyecto-Coliber/HTML/vistaClientes/acercaDeNosotros.html
 
-contacto: https://mateovj03.github.io/proyecto-Coliber/HTML/contacto.html
+contacto: https://mateovj03.github.io/proyecto-Coliber/HTML/vistaClientes/contacto.html
