@@ -94,56 +94,46 @@
 
     <main>
 
-        <!-- Página de inicio -->
-        <section id="inicio">
-            <h1>Bienvenido a Coliber</h1>
-        </section>
+    <!-- Carrusel Inicial -->
 
-        <!-- Catálogo -->
-        <section id="catalogo">
-            <h2>Catálogo de Libros</h2>
-        </section>
+    <section class="hero-slider">
 
-        <!-- Literatura Infantil -->
-        <section id="literatura-infantil">
-            <h2>Literatura Infantil</h2>
-        </section>
+        <!-- Flecha izquierda -->
+        <button class="slider-btn prev" aria-label="Imagen anterior">
+            &#10094;
+        </button>
 
-        <!-- Autores -->
-        <section id="autores">
-            <h2>Autores</h2>
-        </section>
+        <!-- Contenedor de todas las imagenes del Banner -->
+        <div class="slides">
 
-        <!-- Recomendaciones -->
-        <section id="recomendaciones">
-            <h2>Recomendaciones</h2>
-        </section>
+            <!-- Banner 1 -->
+            <div class="slide active">
+                <img src="../../IMG/Banner PI 1.png" alt="Explorar Cátalogo de Coliber">
+            </div>
 
-        <!-- Comunidad de Lectores -->
-        <section id="comunidad">
-            <h2>Comunidad de Lectores</h2>
-        </section>
+            <!-- Banner 2 -->
+            <div class="slide">
+                <img src="../../IMG/Banner PI 2.png" alt="Nuevos Lanzamientos Literarios">
+            </div>
 
-        <!-- Carrito de Compras -->
-        <section id="carrito">
-            <h2>Carrito de Compras</h2>
-        </section>
+            <!-- Banner 3 -->
+            <div class="slide">
+                <img src="../../IMG/Banner PI 3.png" alt="Descuentos Exclusivos">
+            </div>
 
-        <!-- Inicio de Sesión -->
-        <section id="login">
-            <h2>Inicio de Sesión</h2>
-        </section>
+        </div>
 
-        <!-- Panel de Administración -->
-        <section id="panel-admin">
-            <h2>Panel de Administración</h2>
-        </section>
+        <!-- Flecha derecha -->
+        <button class="slider-btn next" aria-label="Siguiente imagen">
+            &#10095;
+        </button>
 
-        <!-- Agregar o Editar Libro -->
-        <section id="gestion-libros">
-            <h2>Agregar o Editar Libro</h2>
-        </section>
-
+        <!-- Indicadores del carrusel -->
+        <div class="indicators">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
         <!-- Botón Whatsapp -->
 
         <a href="https://wa.me/573001234567" class="whatsapp-float" target="_blank">
@@ -152,8 +142,100 @@
 
         </a>
 
-    </main>
+    </section>
 
+    <!-- Beneficio Coliber -->
+
+   <section class="beneficios">
+
+    <article class="beneficio">
+        <img src="../../IMG/Beneficio1 (1).png" alt="Envíos seguros">
+
+        <h3>Envíos seguros</h3>
+
+        <p>Recibe tus libros de forma rápida y confiable.</p>
+    </article>
+
+    <article class="beneficio">
+        <img src="../../IMG/Beneficio 2.png" alt="Pagos confiables">
+
+        <h3>Pagos confiables</h3>
+
+        <p>Diferentes métodos de pago para tu comodidad.</p>
+    </article>
+
+    <article class="beneficio">
+        <img src="../../IMG/Beneficio 3.png" alt="Amplio catálogo">
+
+        <h3>Amplio catálogo</h3>
+
+        <p>Miles de libros para todos los gustos.</p>
+    </article>
+
+    <article class="beneficio">
+        <img src="../../IMG/Beneficio 4.png" alt="Comunidad lectora">
+
+        <h3>Comunidad lectora</h3>
+
+        <p>Comparte opiniones y descubre nuevas historias.</p>
+    </article>
+
+    </section>
+
+    <!-- Categorías Destacadas -->
+
+    <section class="categorias">
+
+        <!-- Título de la sección -->
+        <div class="categorias-titulo">
+            <h2>Categorías Destacadas</h2>
+        </div>
+
+        <!-- Contenedor de categorías -->
+        <div class="categorias-grid">
+
+            <!-- Romance -->
+            <article class = "categoria-card">
+
+                <img src="../../IMG/CRomance.png" alt="Categoría Romance" > 
+                     
+                    <h3>Romance</h3>
+
+            </article>
+
+            <!-- Fantasía -->
+            <article class = "categoria-card" >
+
+                <img src="../../IMG/CFantasia.png" alt="Categoría Fantasía" >
+
+                    <h3>Fantasía</h3>
+                
+            </article>
+
+            <!-- Terror -->
+            <article  class = "categoria-card">
+
+                <img src="../../IMG/CTerror.png" alt="Categoría Terror" >
+
+                    <h3>Terror</h3>
+                
+            </article>
+
+            <!-- Crecimiento Personal -->
+            <article class = "categoria-card">
+
+                <img src="../../IMG/CCrecimiento.png" alt="Categoría Crecimiento Personal" >
+
+                    <h3>Crecimiento Personal</h3>
+                
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+      
     <footer class="footer-coliber">
         <div class="footer-contenido">
             <div class="footer-marca">

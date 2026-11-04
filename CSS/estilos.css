@@ -181,9 +181,8 @@ a{
 /* Secciones */
 
 section{
-    min-height:500px;
-    padding:90px 6%;
-    position:relative;
+
+    padding: 30px;
 }
 
 section h1{
@@ -791,20 +790,15 @@ section h2{
 #informacion-coliber{
 
     padding:80px 20px;
-
     background-color:#F5F7FA;
 }
 
 .titulo-seccion{
 
     text-align:center;
-
     color:#2A2C8F;
-
     font-size:2.5rem;
-
     font-weight:bold;
-
     margin-bottom:40px;
 }
 
@@ -813,23 +807,14 @@ section h2{
 .card-coliber{
 
     max-width:1100px;
-
     margin:auto;
-
     background:#FFFFFF;
-
     border:1px solid #E3EAF5;
-
     border-radius:20px;
-
     padding:35px;
-
     display:flex;
-
     align-items:center;
-
     gap:30px;
-
     box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
@@ -838,24 +823,17 @@ section h2{
 .icono-card{
 
     min-width:110px;
-
     height:110px;
-
     border-radius:50%;
-
     background:#DDF5F1;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 }
 
 .icono-card i{
 
     font-size:50px;
-
     color:#08866D;
 }
 
@@ -881,43 +859,59 @@ section h2{
 .contenido-card h3{
 
     color:#2A2C8F;
-
     font-size:2rem;
-
     font-weight:700;
-
     margin-bottom:15px;
 }
 
 .contenido-card p{
 
     color:#2A2C8F;
-
     font-size:1.1rem;
-
     line-height:1.7;
-
     margin:0;
 }
 
-/* Flechas del Carrusel */
+/* Flechas del carrusel */
 
-.carousel-control-prev,
-.carousel-control-next{
+.slider-btn{
 
-    width:8%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    color: #7a006f;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,.2);
+    transition: .10s ease;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon{
+/* Efecto hover */
 
-    background-color:#29BBAF;
+.slider-btn:hover{
 
-    border-radius:50%;
+    background: #7a006f;
+    color: white;
+}
 
-    padding:22px;
+/* Flecha izquierda */
+.prev{
+    left: 20px;
+}
 
-    background-size:55%;
+/* Flecha derecha */
+.next{
+    right: 20px;
 }
 
 /* Indicadores*/
@@ -925,11 +919,8 @@ section h2{
 .carousel-indicators button{
 
     background-color:#29BBAF !important;
-
     width:12px !important;
-
     height:12px !important;
-
     border-radius:50%;
 }
 
@@ -938,7 +929,6 @@ section h2{
 .card-coliber:hover{
 
     transform:translateY(-5px);
-
     transition:0.3s ease;
 }
 
@@ -1856,4 +1846,131 @@ section h2{
 
         padding:2rem;
     }
+}
+
+/*  Página de Inicio */
+
+.hero-slider{
+    position: relative;
+    width: 90%;
+    max-width: 1400px;
+    margin: 2rem auto;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.slides{
+    position: relative;
+}
+
+.slide{
+    display: none;
+}
+
+.slide.active{
+    display: block;
+}
+
+.slide img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+.beneficios{
+
+    border-top: 2px solid #EAD7EA;
+    margin-bottom: 2rem;
+   
+}
+
+/* Beneficios Página de Inicio */ 
+
+.beneficios{
+
+    width: 90%;
+    margin: 1rem auto 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 2rem;
+}
+
+.beneficio{
+
+    flex: 1;
+    text-align: center;
+}
+
+.beneficio img{
+
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    transition: .3s ease;
+}
+
+.beneficio img:hover{
+
+    transform: scale(1.08);
+}
+
+.beneficio h3{
+
+    margin-top: .8rem;
+    color: #70146F;
+    font-weight: 700;
+}
+
+.beneficio p{
+
+    color: #555;
+    font-size: .95rem;
+}
+
+/* ==========================
+  Categorías Destacadas
+========================== */
+
+.categorias-grid{
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:3rem;
+    flex-wrap:wrap;
+}
+
+.categoria-card{
+
+    width:160px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.categoria-card img{
+
+    width:160px;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    transition:.3s ease;
+}
+
+.categoria-card:hover img{
+
+    transform:translateY(-8px);
+}
+
+.categoria-card h3{
+
+    margin-top:1rem;
+    color:#70146F;
+    font-size:1.2rem;
+    font-weight:700;
 }
