@@ -1974,3 +1974,303 @@ section h2{
     font-size:1.2rem;
     font-weight:700;
 }
+
+/* Newsletter */
+
+.newsletter{
+
+    position: relative;
+    width: 90%;
+    max-width: 1400px;
+    margin: 4rem auto;
+    padding: 2.5rem 4rem;
+    background: linear-gradient(
+        135deg,
+        var(--azul-claro),
+        #e9fffb
+    );
+
+    border: 1px solid rgba(41,187,175,.4);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow:
+        0 12px 35px rgba(20,70,90,.07);
+}
+
+.newsletter-contenedor{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 0rem 2rem;
+    position:relative;
+    z-index:2;
+}
+
+.newsletter-info{
+
+    flex:1;
+    text-align:left;
+}
+
+.newsletter-etiqueta{
+
+    display:inline-block;
+    padding:8px 18px;
+    margin-bottom:1.5rem;
+    background:rgba(36,184,171,.12);
+    color:var(--verde-oscuro);
+    border-radius:50px;
+    font-size:.85rem;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.newsletter h2{
+
+    color:var(--azul);
+    font-size:clamp(2.8rem,5vw,4.5rem);
+    font-weight:800;
+    line-height:1.05;
+    margin-bottom:1.2rem;
+}
+
+.newsletter-coliber{
+
+    display:block;
+    color:var(--verde-principal);
+}
+
+.newsletter p{
+
+    color:#5f6581;
+    font-size:1.2rem;
+    line-height:1.8;
+    max-width:600px;
+    margin-bottom:2rem;
+}
+
+.newsletter-inputs{
+
+    display:flex;
+    gap:1rem;
+    margin-bottom:1rem;
+}
+
+.newsletter-inputs input{
+
+    flex:1;
+    padding:18px 24px;
+    border:none;
+    border-radius:50px;
+    outline:none;
+    font-size:1rem;
+    background:white;
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.05);
+}
+
+.newsletter-inputs input:focus{
+
+    box-shadow:
+        0 0 0 4px rgba(41,187,175,.15);
+}
+
+.newsletter-acciones{
+
+    margin-bottom:1.2rem;
+}
+
+.newsletter-acciones button{
+
+    background:var(--verde-principal);
+    color:white;
+    border:none;
+    border-radius:50px;
+    padding:18px 35px;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.newsletter-acciones button:hover{
+
+    background:var(--verde-oscuro);
+    transform:translateY(-3px);
+}
+
+.newsletter-check{
+
+    display:flex;
+    align-items:flex-start;
+    gap:.7rem;
+    color:#5f6581;
+    font-size:.95rem;
+}
+
+.newsletter-check input{
+
+    margin-top:5px;
+}
+
+.newsletter-imagen{
+
+    flex:1;
+    display:flex;
+    justify-content:center;
+    position: relative;
+    align-items:center;
+}
+
+.newsletter-imagen img{
+
+    width:100%;
+    max-width:520px;
+    height:auto;
+    animation:flotarNewsletter 5s ease-in-out infinite;
+}
+
+.newsletter-imagen:before{
+
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:rgba(41,187,175,.12);
+    border-radius:50%;
+    bottom:20px;
+    left:-50%;
+    top:180px;
+    transform:translateX(-50%);
+    z-index:-1;
+}
+
+.newsletter-hojas{
+
+    position:absolute;
+    z-index:1;
+    opacity:.25;
+}
+
+.newsletter-hojas-izquierda{
+
+    width:180px;
+    left:-30px;
+    bottom:-20px;
+}
+
+.newsletter-hojas-derecha{
+
+    width:180px;
+    right:-30px;
+    top:-20px;
+    transform:rotate(180deg);
+}
+
+@keyframes flotarNewsletter{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+.newsletter-mensaje{
+
+    display:none;
+    margin-top:1rem;
+    padding:1rem;
+    border-radius:15px;
+    background:rgba(41,187,175,.12);
+    color:var(--verde-oscuro);
+    font-weight:700;
+}
+
+.newsletter-check a{
+
+    color:var(--azul);
+    font-weight:700;
+    text-decoration:none;
+    border-bottom:2px solid var(--verde-principal);
+    padding-bottom:2px;
+    transition:.3s ease;
+}
+
+.newsletter-check a:hover{
+
+    color:var(--morado);
+    border-bottom:2px solid var(--morado);
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+    .newsletter{
+
+        padding:3rem 2rem;
+    }
+
+    .newsletter-contenedor{
+
+        flex-direction:column;
+    }
+
+    .newsletter-info{
+
+        text-align:center;
+    }
+
+    .newsletter p{
+
+        margin:0 auto 2rem;
+    }
+
+    .newsletter-inputs{
+
+        flex-direction:column;
+    }
+
+    .newsletter-check{
+
+        justify-content:center;
+    }
+
+    .newsletter-imagen img{
+
+        max-width:320px;
+    }
+}
+
+@media(max-width:768px){
+
+    .newsletter{
+
+        padding:2rem 1.5rem;
+    }
+
+    .newsletter h2{
+
+        font-size:2.4rem;
+    }
+
+    .newsletter p{
+
+        font-size:1rem;
+    }
+
+    .newsletter-etiqueta{
+
+        font-size:.75rem;
+    }
+}
+

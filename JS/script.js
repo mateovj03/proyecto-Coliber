@@ -163,3 +163,35 @@ setInterval(() => {
     showSlide(currentSlide);
 
 }, 5000);
+
+// /* Mensaje de Agradecimiento al suscribirse a la Newsletter */
+
+
+const newsletterForm = document.querySelector(".newsletter-form");
+const mensajeExito   = document.querySelector(".newsletter-mensaje");
+
+newsletterForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const datos = new FormData(newsletterForm);
+
+    const respuesta = await fetch(newsletterForm.action, {
+
+        method: "POST",
+        body: datos,
+        headers: {
+            Accept: "application/json"
+        }
+
+    });
+
+    if (respuesta.ok) {
+
+        newsletterForm.reset();
+
+        mensajeExito.style.display = "block";
+
+    }
+
+});
