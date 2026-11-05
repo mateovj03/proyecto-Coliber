@@ -1,0 +1,268 @@
+
+:root{
+
+    --verde-principal:#29BBAF;
+    --verde-secundario:#5DBA44;
+    --verde-oscuro:#08866D;
+    --azul:#2A2C8F;
+    --morado:#BB52C2;
+    --blanco:#FFFFFF;
+    --gris:#F5F7FA;
+    --azul-claro:#DEFFFA;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Segoe UI',sans-serif;
+    background:var(--gris);
+    color:#4d5877;
+    line-height:1.7;
+}
+
+.politica{
+
+    position:relative;
+    text-align:center;
+    padding:2.5rem 2rem;
+    background:
+        linear-gradient(
+            135deg,
+            #DEFFFA,
+            #F5FFFD
+        );
+
+    overflow:hidden;
+}
+
+.politica::before{
+
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:
+        rgba(41,187,175,.10);
+    border-radius:50%;
+    top:-180px;
+    left:-120px;
+}
+
+.politica::after{
+
+    content:"";
+    position:absolute;
+    width:280px;
+    height:280px;
+    background:
+        rgba(187,82,194,.08);
+    border-radius:50%;
+    right:-100px;
+    top:40px;
+}
+
+.logo-politica{
+
+    width:190px;
+
+    margin-bottom:1rem;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.frase-coliber{
+
+    display:block;
+    color:var(--verde-oscuro);
+    font-weight:700;
+    margin-bottom:4rem;
+    position:relative;
+    z-index:2;
+}
+
+.politica h1{
+
+    color:var(--azul);
+    max-width:900px;
+    font-size:clamp(2rem,4vw,3.2rem);
+    margin:0 auto 1rem;
+    line-height:1.15;
+    margin-bottom:1rem;
+    position:relative;
+    z-index:2;
+}
+
+.subtitulo{
+
+    color:#5f6581;
+    font-size:1.1rem;
+    margin-bottom:1.5rem;
+    position:relative;
+    z-index:2;
+}
+
+.fecha-politica{
+
+    display:inline-block;
+    padding:.8rem 1.3rem;
+    border-radius:50px;
+    background:white;
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.08);
+    color:var(--azul);
+    font-weight:600;
+    position:relative;
+    z-index:2;
+}
+
+.contenedor-politica{
+
+    width:96%;
+    max-width:1600px;
+    margin:3rem auto;
+    display:grid;
+    gap:2rem;
+}
+
+.politica-card{
+
+    background:white;
+    padding:2.5rem 3rem;
+    border-radius:25px;
+    border-left:8px solid var(--verde-principal);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.06);
+    transition:.3s ease;
+}
+
+.politica-card:hover{
+
+    transform:translateY(-5px);
+    box-shadow:
+        0 16px 30px rgba(0,0,0,.10);
+}
+
+.politica-card h2{
+
+    color:var(--azul);
+    margin-bottom:1rem;
+    font-size:1.5rem;
+}
+
+.politica-card p{
+
+    color:#5f6581;
+    line-height:1.9;
+    font-size:1.05rem;
+    text-align:justify;
+}
+
+.politica-card ul,
+.politica-card ol{
+
+    padding-left:1.5rem;
+    margin-top:1rem;
+}
+
+.politica-card li{
+
+    margin-bottom:.7rem;
+}
+
+.footer-politica{
+
+    text-align:center;
+    padding:4rem 2rem;
+    background:
+        linear-gradient(
+            135deg,
+            var(--azul),
+            var(--verde-oscuro)
+        );
+
+    color:white;
+    margin-top:5rem;
+}
+
+.footer-politica h3{
+
+    font-size:2rem;
+    margin-bottom:1rem;
+}
+
+.footer-politica p{
+
+    color:#DEFFFA;
+}
+
+.acciones-politica{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+    margin-top:1.5rem;
+}
+
+  .volver-coliber{
+
+    display:block;
+    align-items:center;
+    justify-content:center;
+    margin-top:1.2rem;
+    padding:12px 25px;
+    background:white;
+    color:var(--azul);
+    font-weight:700;
+    border-radius:50px;
+    text-decoration:none;
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s ease;
+
+}
+
+.volver-coliber:hover{
+
+    background:var(--verde-principal);
+    color:white;
+    transform:translateY(-3px);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .politica{
+
+        padding:4rem 1.5rem;
+    }
+
+    .logo-politica{
+
+        width:140px;
+    }
+
+    .politica h1{
+
+        font-size:2rem;
+    }
+
+    .contenedor-politica{
+
+        width:100%;
+    }
+
+    .politica-card{
+
+        padding:1.5rem;
+    }
+}
