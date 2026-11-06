@@ -42,7 +42,7 @@ a{
     justify-content:space-between;
     align-items:center;
     gap:30px;
-    padding:18px 6%;
+    padding: 14px 6%;
     background-color:var(--blanco);
     border-top:4px solid var(--morado);
     border-bottom:1px solid #e8eeee;
@@ -52,7 +52,7 @@ a{
 /* Logo */
 
 .logo img{
-    height:100px;
+    height: 100px;
     width:auto;
     display:block;
 }
@@ -139,7 +139,7 @@ a{
 .acciones-superiores{
     display:flex;
     align-items:center;
-    gap:16px;
+    gap:12px;
     flex-shrink:0;
 }
 /* Menú Principal */
@@ -202,9 +202,7 @@ section h2{
 }
 
 
-/* ==========================
-   FOOTER COLIBER
-========================== */
+/*   FOOTER COLIBER  */
 
 .footer-coliber {
     position: relative;
@@ -253,6 +251,7 @@ section h2{
 }
 
 .footer-logo span {
+    color: #FFFFFF;
     font-size: 2.3rem;
     font-weight: 800;
     letter-spacing: -1px;
@@ -1975,6 +1974,7 @@ section h2{
     font-weight:700;
 }
 
+
 /* Newsletter */
 
 .newsletter{
@@ -2272,5 +2272,304 @@ section h2{
 
         font-size:.75rem;
     }
+}
+
+/* Reseñas y Novedades */
+
+/* Reseñas y Novedades */
+
+.presentacion-resenas {
+    text-align: center;
+    padding: 55px 20px;
+    background: linear-gradient(115deg, #E9EAF8 0%, #F0E7F5 55%, #F7EAF3 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Silueta de páginas abiertas */
+.presentacion-resenas::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 5%;
+    width: 95px;
+    height: 65px;
+    border: 2px solid rgba(42, 44, 143, 0.18);
+    border-radius: 5px 35px 5px 5px;
+    transform: rotate(-12deg);
+    box-shadow: 8px 5px 0 rgba(187, 82, 194, 0.10);
+}
+
+/* Líneas curvas decorativas */
+.presentacion-resenas::after {
+    content: "";
+    position: absolute;
+    bottom: -45px;
+    right: -20px;
+    width: 220px;
+    height: 130px;
+    border: 2px solid rgba(187, 82, 194, 0.20);
+    border-radius: 50%;
+    box-shadow:
+        0 -12px 0 -2px transparent,
+        0 -14px 0 -2px rgba(42, 44, 143, 0.12),
+        0 -28px 0 -2px transparent,
+        0 -30px 0 -2px rgba(187, 82, 194, 0.12);
+}
+
+.presentacion-resenas h1,
+.presentacion-resenas p {
+    position: relative;
+    z-index: 1;
+}
+
+.presentacion-resenas h1 {
+    color: var(--azul);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.presentacion-resenas p {
+    max-width: 750px;
+    margin: 0 auto;
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+/* Libro destacado */
+
+.libro-destacado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 35px auto 15px;
+    padding: 40px;
+    background-color: var(--gris);
+    border-radius: 15px;
+}
+
+.libro-destacado-contenido {
+    flex: 1;
+}
+
+.etiqueta-destacado {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 18px;
+    background-color: rgba(187, 82, 194, 0.12);
+    color: var(--morado);
+    border: 1px solid rgba(187, 82, 194, 0.35);
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(187, 82, 194, 0.08);
+    backdrop-filter: blur(6px);
+}
+
+.libro-destacado h2 {
+    color: var(--azul);
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.libro-destacado p {
+    color: #555;
+    line-height: 1.7;
+}
+
+.libro-destacado-imagen {
+    flex: 0 0 32%;
+    text-align: center;
+}
+
+.libro-destacado-imagen img {
+    width: 100%;
+    max-width: 300px;
+    height: 260px;
+    object-fit: contain;
+}
+/* Novedades */
+
+.novedades-libros {
+    padding: 15px 30px 45px;
+    text-align: center;
+}
+
+.novedades-libros h2 {
+    color: var(--azul);
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.novedades-libros > p {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.novedades-contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.novedad-libro {
+    padding: 35px 20px;
+    background-color: var(--gris);
+    border-radius: 15px;
+    border: 1px solid #e5e5e5;
+}
+.novedad-libro img {
+    width: 150px;
+    height: 210px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.novedad-libro i {
+    font-size: 3rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 15px;
+}
+
+.novedad-libro h3 {
+    color: var(--azul);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.novedad-libro p {
+    color: #666;
+    margin-bottom: 0;
+}
+
+.novedad-libro {
+    border-top: 4px solid var(--verde-principal);
+    box-shadow: 0 4px 12px rgba(42, 44, 143, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.novedad-libro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(42, 44, 143, 0.15);
+}
+/* Reseñas de compradores */
+
+.resenas-compradores h2 {
+    color: var(--azul);
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.resenas-compradores h2 {
+    color: var(--azul);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.resenas-compradores > p {
+    color: #555;
+    text-align: center;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.resenas-contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.resena-card {
+    padding: 30px 25px;
+    background-color: var(--blanco);
+    border-radius: 15px;
+    border: 1px solid #e5e5e5;
+    text-align: left;
+}
+
+.resena-estrellas {
+    color: #F4B400;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.resena-card h3 {
+    color: var(--azul);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.resena-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.resena-card span {
+    color: var(--verde-oscuro);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+/* Adaptación para tabletas y celulares */
+
+@media (max-width: 768px) {
+
+    .libro-destacado {
+        flex-direction: column;
+        text-align: center;
+        margin: 30px 20px;
+        padding: 30px 20px;
+    }
+
+    .libro-destacado-imagen {
+        flex: 1;
+    }
+
+    .novedades-contenedor,
+    .resenas-contenedor {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .presentacion-resenas {
+        padding: 40px 20px;
+    }
+
+    .presentacion-resenas h1 {
+        font-size: 1.8rem;
+    }
+
+    .libro-destacado h2,
+    .novedades-libros h2,
+    .resenas-compradores h2 {
+        font-size: 1.6rem;
+    }
+
+    .novedades-contenedor,
+    .resenas-contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .novedades-libros,
+    .resenas-compradores {
+        padding: 35px 20px;
+    }
+
 }
 
