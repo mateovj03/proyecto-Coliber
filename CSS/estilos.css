@@ -202,9 +202,7 @@ section h2{
 }
 
 
-/* ==========================
-   FOOTER COLIBER
-========================== */
+/*   FOOTER COLIBER  */
 
 .footer-coliber {
     position: relative;
@@ -253,6 +251,7 @@ section h2{
 }
 
 .footer-logo span {
+    color: #FFFFFF;
     font-size: 2.3rem;
     font-weight: 800;
     letter-spacing: -1px;
@@ -2277,10 +2276,51 @@ section h2{
 
 /* Reseñas y Novedades */
 
+/* Reseñas y Novedades */
+
 .presentacion-resenas {
     text-align: center;
     padding: 55px 20px;
-    background-color: var(--azul-claro);
+    background: linear-gradient(115deg, #E9EAF8 0%, #F0E7F5 55%, #F7EAF3 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Silueta de páginas abiertas */
+.presentacion-resenas::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 5%;
+    width: 95px;
+    height: 65px;
+    border: 2px solid rgba(42, 44, 143, 0.18);
+    border-radius: 5px 35px 5px 5px;
+    transform: rotate(-12deg);
+    box-shadow: 8px 5px 0 rgba(187, 82, 194, 0.10);
+}
+
+/* Líneas curvas decorativas */
+.presentacion-resenas::after {
+    content: "";
+    position: absolute;
+    bottom: -45px;
+    right: -20px;
+    width: 220px;
+    height: 130px;
+    border: 2px solid rgba(187, 82, 194, 0.20);
+    border-radius: 50%;
+    box-shadow:
+        0 -12px 0 -2px transparent,
+        0 -14px 0 -2px rgba(42, 44, 143, 0.12),
+        0 -28px 0 -2px transparent,
+        0 -30px 0 -2px rgba(187, 82, 194, 0.12);
+}
+
+.presentacion-resenas h1,
+.presentacion-resenas p {
+    position: relative;
+    z-index: 1;
 }
 
 .presentacion-resenas h1 {
