@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Coliber</title> <!-- Titulo de nuestro proyecto -->
+    <title>Administrador - Productos</title> <!-- Titulo de nuestro proyecto -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -17,7 +17,7 @@
 
 <body>
 
-    
+
     <!-- Encabezado -->
 
     <header>
@@ -69,12 +69,33 @@
         </nav>
 
     </header>
-    <main>
+    <main class="administracion-productos"> <!-- Se agrega Clase a la main -Nicolas-->
         <section class="vista-productos" aria-labelledby="productos-titulo">
             <div class="productos-panel">
                 <div class="productos-contenido">
                     <div class="productos-encabezado">
+                        <span class="productos-etiqueta">Administración - Catálogo</span> <!-- Nueva etiqueta -Nicolas-->
                         <h1 id="productos-titulo">Productos</h1>
+                        <!-- Se agrega Clase a la main -Nicolas-->
+                        <p>Consulta y actualiza la información del catálogo de libros.</p>
+                    </div>
+                    <div class="productos-herramientas">
+
+                        
+                        <!-- Cambio orden -Nicolas-->
+                        <div class="productos-filtros">
+                            <label class="visually-hidden" for="buscar-producto">Buscar producto</label>
+                            <input class="productos-campo" id="buscar-producto" type="search"
+                                placeholder="Buscar producto">
+                            <label class="visually-hidden" for="filtro-productos">Filtrar productos</label>
+                            <select class="productos-campo" id="filtro-productos">
+                                <option value="todos">Todos</option>
+                                <option value="disponibles">Disponibles</option>
+                                <option value="agotados">Sin stock</option>
+                            </select>
+                        </div>
+
+
                         <div class="productos-acciones" aria-label="Acciones de productos">
                             <button class="productos-boton productos-boton-principal" type="button">
                                 <i class="bi bi-plus-lg" aria-hidden="true"></i> Nuevo
@@ -88,61 +109,55 @@
                         </div>
                     </div>
 
-                <div class="productos-filtros">
-                    <label class="visually-hidden" for="buscar-producto">Buscar producto</label>
-                    <input class="productos-campo" id="buscar-producto" type="search"
-                        placeholder="Buscar producto">
-                    <label class="visually-hidden" for="filtro-productos">Filtrar productos</label>
-                    <select class="productos-campo" id="filtro-productos">
-                        <option value="todos">Todos</option>
-                        <option value="disponibles">Disponibles</option>
-                        <option value="agotados">Sin stock</option>
-                    </select>
-                </div>
 
-                <div class="productos-tabla-contenedor">
-                    <table class="productos-tabla">
-                        <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Foto</th>
-                                <th scope="col">Categoría</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Autor</th>
-                                <th scope="col">Precio</th>
-                                <th scope="col">Stock</th>
-                                <th scope="col">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="productos-vacio" colspan="8">
-                                    No hay productos para mostrar.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
 
-                <div class="productos-paginacion">
-                    <span class="productos-resumen">Mostrando 0 de 0 productos</span>
-                    <nav aria-label="Paginación de productos">
-                        <ul class="productos-paginacion-lista">
-                            <li>
-                                <button class="productos-pagina" type="button" disabled>Anterior</button>
-                            </li>
-                            <li>
-                                <button class="productos-pagina" type="button" disabled>Siguiente</button>
-                            </li>
-                        </ul>
-                    </nav>
+                    <div class="productos-tabla-contenedor">
+                        <table class="productos-tabla">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Foto</th>
+                                    <th scope="col">Categoría</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Autor</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="productos-vacio" colspan="8">
+                                        <!-- Lista vacia -Nicolas-->
+                                        <i class="bi bi-journal-bookmark" aria-hidden="true"></i>
+                                        <strong>Aún no hay libros para mostrar</strong>
+                                        <span>Cuando agregues libros, aparecerán aquí con su precio y stock.</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="productos-paginacion">
+                        <span class="productos-resumen">Mostrando 0 de 0 productos</span>
+                        <nav aria-label="Paginación de productos">
+                            <ul class="productos-paginacion-lista">
+                                <li>
+                                    <button class="productos-pagina" type="button" disabled>Anterior</button>
+                                </li>
+                                <li>
+                                    <button class="productos-pagina" type="button" disabled>Siguiente</button>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
-            </div>
             </div>
         </section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../JS/productos-demo.js" defer></script>  <!-- Funcionalidad para ver vista preliminar-->
 
 </body>
 
