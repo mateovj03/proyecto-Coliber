@@ -15,4 +15,4 @@ acerca de nosotros: https://mateovj03.github.io/proyecto-Coliber/HTML/vistaClien
 
 contacto: https://mateovj03.github.io/proyecto-Coliber/HTML/vistaClientes/contacto.html
 
-vistaAdministrador:  https://mateovj03.github.io/proyecto-Coliber/HTML/vistaAdministrador/inicioAdministrador.html
+productos-vista administrador: https://mateovj03.github.io/proyecto-Coliber/HTML/vistaAdministrador/productos.html
