@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="../../CSS/estilos.css">
     <link rel="stylesheet" href="../../CSS/chatbot.css">
+    <link rel="stylesheet" href="../../CSS/vistaClientes/estilosCatalogo.css">
 
 </head>
 
@@ -26,13 +27,13 @@
                 <img src="../../IMG/logo.png" alt="Logo de Coliber">
             </a>
 
-            <form class="buscador">
+            <form class="buscador" id="catalogo-buscar-form">
 
                 <button type="submit" class="btn-buscar" aria-label="Buscar">
                     <i class="bi bi-search"></i>
                 </button>
 
-                <input type="search" placeholder="Buscar libro...">
+                <input id="catalogo-buscar" type="search" placeholder="Buscar libro..." aria-label="Buscar libros">
 
             </form>
 
@@ -92,14 +93,31 @@
 
     </header>
 
-    <main>
-        <!-- Catálogo -->
-        <section id="catalogo">
-            <h2>Catálogo de Libros</h2>
+    <main class="catalogo-pagina">
+        <section class="presentacion-resenas" aria-labelledby="catalogo-titulo">
+            <h1 id="catalogo-titulo">Catálogo de libros</h1>
+            <p>Explora los libros disponibles en Coliber y encuentra tu próxima lectura.</p>
         </section>
 
-        <!-- Botón Whatsapp -->
+        <section id="catalogo" class="catalogo-seccion" aria-label="Listado de libros">
+            <div class="catalogo-controles">
+                <div class="catalogo-filtros">
+                    <label for="catalogo-genero">Género</label>
+                    <select id="catalogo-genero" class="catalogo-genero">
+                        <option value="todos">Todos los géneros</option>
+                    </select>
+                </div>
+                <p id="catalogo-contador" class="catalogo-contador" aria-live="polite"></p>
+            </div>
 
+            <div id="catalogo-lista" class="catalogo-grid"></div>
+
+            <div id="catalogo-vacio" class="catalogo-vacio" hidden>
+                <i class="bi bi-book" aria-hidden="true"></i>
+                <h2>Aún no hay libros para mostrar</h2>
+                <p>Vuelve pronto para descubrir nuevas lecturas.</p>
+            </div>
+        </section>
     </main>
 
     <footer class="footer-coliber">
@@ -164,6 +182,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../JS/script.js"></script> <!-- Esto nos enlaza con nuestro js -->
+    <script src="../../JS/libros-storage.js" defer></script>
+    <script src="../../JS/vistaClientes/catalogo.js" defer></script>
     <script type="module" src="../../JS/chatbot.js"></script>
 
 </body>
