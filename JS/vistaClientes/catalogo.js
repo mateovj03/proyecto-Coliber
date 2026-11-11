@@ -49,6 +49,52 @@ function crearTarjeta(libro) {
     const precio = crearTexto("strong", "catalogo-precio", precioCatalogo.format(Number(libro.precio)));
 
     tarjeta.append(portada, categoria, nombre, autor, datos, precio);
+
+    //Boton añadir carrito
+    const botonComprar = document.createElement("button");
+    botonComprar.className = "btn btn-primary btn-sm w-100 mt-2";
+    botonComprar.textContent = stock > 0 ? "Añadir al carrito" : "Agotado";
+    botonComprar.disabled = stock === 0;
+
+    botonComprar.addEventListener("click", () => {
+        let libros = window.ColiberLibros.leer();
+        let libroInv = libros.find(l => String(l.id) === String(libro.id));
+        if (!libroInv || libroInv.stock <= 0) return;
+
+        let carrito = JSON.parse(localStorage.getItem("coliber-carrito-v1")) || [];
+        let itemCarrito = carrito.find(i => String(i.id) === String(libro.id));
+
+        libroInv.stock -= 1; // Descuenta stock al agregarlo
+
+        if (itemCarrito) {
+            itemCarrito.cantidad += 1;
+        } else {
+            carrito.push({
+                id: libroInv.id,
+                nombre: libroInv.nombre,
+                precio: libroInv.precio,
+                foto: libroInv.foto,
+                cantidad: 1
+            });
+        }
+
+        localStorage.setItem("coliber-carrito-v1", JSON.stringify(carrito));
+        window.ColiberLibros.guardar(libros);
+
+        mostrarCatalogo(); // Refresca catálogo para actualizar el stock visible
+        //se actualiza al instante
+        if(window.ColiberCarrito && typeof window.ColiberCarrito.actualizar === "function"){
+            window.ColiberCarrito.actualizar();
+        }
+
+        // abre el offcanvas automáticamente al hacer clic en añadir
+        const offcanvasEl = document.getElementById("offcanvasWithBothOptions");
+        if (window.bootstrap && offcanvasEl) {
+            window.bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl).show();
+        }
+    });
+
+    tarjeta.append(portada, categoria, nombre, autor, datos, precio, botonComprar);
     return tarjeta;
 }
 
@@ -104,3 +150,4 @@ window.addEventListener("storage", (evento) => {
     if (evento.key === window.ColiberLibros.clave) mostrarCatalogo();
 });
 mostrarCatalogo();
+

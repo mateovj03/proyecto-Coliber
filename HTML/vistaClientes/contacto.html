@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="../../CSS/estilos.css">
     <link rel="stylesheet" href="../../CSS/chatbot.css">
+    <link rel="stylesheet" href="../../CSS/vistaClientes/carrito.css">
 
 </head>
 
@@ -46,7 +47,7 @@
                     <span>Únete</span>
                 </a>
 
-                <a href="#carrito" class="btn-nav carrito">
+                <a href="#carrito" class="btn-nav carrito" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-cart3"></i>
                     <span>Carrito</span>
                 </a>
@@ -164,14 +165,15 @@
                     Respuesta rápida para resolver tus dudas, pedidos y recomendaciones.
                 </p>
 
-                <p>+57 300 123 4567<p>
+                <p>+57 300 123 4567
+                <p>
 
 
-                <a href="https://wa.me/573001234567" target="_blank" class="btn-contact">
+                    <a href="https://wa.me/573001234567" target="_blank" class="btn-contact">
 
-                    Escribir Ahora
+                        Escribir Ahora
 
-                </a>
+                    </a>
             </div>
 
             <!-- Línea Telefónica -->
@@ -184,7 +186,7 @@
                 <p>Atención especializada para todas tus consultas y pedidos</p>
 
                 <p>(604) 444 4404</p>
-                 <a href="tel:+573001234567" target="_blank" class="btn-contact">
+                <a href="tel:+573001234567" target="_blank" class="btn-contact">
 
                     Llamar Ahora
 
@@ -203,7 +205,8 @@
 
                 <p>colibercolombia@gmail.com</p>
 
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=colibercolombia@gmail.com" target="_blank" class="btn-contact">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=colibercolombia@gmail.com" target="_blank"
+                    class="btn-contact">
 
                     Enviar Email
 
@@ -222,9 +225,10 @@
 
                 <p> Calle 48 N° 51 -29 Medellín, Colombia</p>
 
-                <a href="https://www.google.com/maps/search/?api=1&query=Calle+48+N+51+-29+Medellin+Colombia" target="_blank" rel="noopener noreferrer" class="btn-contact">
+                <a href="https://www.google.com/maps/search/?api=1&query=Calle+48+N+51+-29+Medellin+Colombia"
+                    target="_blank" rel="noopener noreferrer" class="btn-contact">
 
-                   Ver en Maps
+                    Ver en Maps
 
                 </a>
 
@@ -461,58 +465,93 @@
 
     </main>
 
+        <!-- Modal carrito offcanvas.  -->
+        <aside class="offcanvas offcanvas-end text-bg-dark rovent-cart" data-bs-scroll="true" tabindex="-1"
+            id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header">
+                <div>
+                    <h2 class="offcanvas-title h4 mb-1" id="offcanvasWithBothOptionsLabel">Mi Carrito</h2>
+                    <span>Tus productos</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Cerrar carrito"></button>
+            </div>
+            <div class="offcanvas-body cart-items" id="cart-items" aria-live="polite">
+                <!-- JavaScript inserta aquí los productos y sus controles de cantidad. -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-subtotal">
+                    <span>Subtotal</span>
+                    <strong id="cart-total">$0</strong>
+                </div>
+                <div class="text-center my-2">
+                    <small class="text-muted">🚚 Envío disponible a todo Colombia</small>
+                </div>
+                <button class="btn btn-outline-danger w-100" id="clear-cart-btn" type="button">
+                    Vaciar carrito
+                </button>
+                <button class="btn btn-rovent-checkout w-100" id="checkout-btn" type="button">
+                    Finalizar compra
+                </button>
+            </div>
+        </aside>
+
 
     <!-- Footer Coliber -->
 
-<footer class="footer-coliber">
+    <footer class="footer-coliber">
 
-    <div class="footer-contenido">
+        <div class="footer-contenido">
 
-        <div class="footer-marca">
+            <div class="footer-marca">
 
-            <a href="inicio.html" class="footer-logo">
-                <img src="../../IMG/logoblanco.png" alt="Logo de Coliber">
-            </a>
+                <a href="inicio.html" class="footer-logo">
+                    <img src="../../IMG/logoblanco.png" alt="Logo de Coliber">
+                </a>
 
-            <p class="footer-eslogan">
-                Historias que nos unen, libros que nos transforman.
-            </p>
+                <p class="footer-eslogan">
+                    Historias que nos unen, libros que nos transforman.
+                </p>
 
-        </div>
+            </div>
 
-        <div class="footer-informacion">
+            <div class="footer-informacion">
 
-            <h3>Explora y conoce Coliber</h3>
+                <h3>Explora y conoce Coliber</h3>
 
-            <a href="resenasNovedades.html">Novedades Editoriales</a>
-            <a href="autores.html">Autores Colombianos</a>
-            <a href="acercaDeNosotros.html">Conoce Coliber</a>
-            <a href="#">Términos y Condiciones del Servicio</a>
+                <a href="resenasNovedades.html">Novedades Editoriales</a>
+                <a href="autores.html">Autores Colombianos</a>
+                <a href="acercaDeNosotros.html">Conoce Coliber</a>
+                <a href="#">Términos y Condiciones del Servicio</a>
 
-        </div>
+            </div>
 
-        <div class="footer-seguridad">
+            <div class="footer-seguridad">
 
-            <i class="bi bi-shield-lock-fill"></i>
-            <span>Compra 100% Segura</span>
+                <i class="bi bi-shield-lock-fill"></i>
+                <span>Compra 100% Segura</span>
 
-            <div class="footer-redes">
+                <div class="footer-redes">
 
-                <h3>Síguenos en Redes</h3>
+                    <h3>Síguenos en Redes</h3>
 
-                <div class="footer-iconos">
+                    <div class="footer-iconos">
 
-                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                        <i class="bi bi-whatsapp"></i>
-                    </a>
+                        <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer"
+                            aria-label="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
 
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                        <i class="bi bi-facebook"></i>
-                    </a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
 
-                    <a href="mailto:colibercolombia@gmail.com" aria-label="Correo electrónico">
-                        <i class="bi bi-envelope-fill"></i>
-                    </a>
+                        <a href="mailto:colibercolombia@gmail.com" aria-label="Correo electrónico">
+                            <i class="bi bi-envelope-fill"></i>
+                        </a>
+
+                    </div>
 
                 </div>
 
@@ -520,14 +559,15 @@
 
         </div>
 
-    </div>
+        <div class="footer-inferior">
+            <p>© 2026 Coliber - Generation Colombia.</p>
+        </div>
 
-    <div class="footer-inferior">
-        <p>© 2026 Coliber - Generation Colombia.</p>
-    </div>
-
-</footer>
+    </footer>
     <script src="../../JS/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../JS/libros-storage.js" defer></script>
+    <script src="../../JS/carrito.js" defer></script>
 </body>
 
 </html>
