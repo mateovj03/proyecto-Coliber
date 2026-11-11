@@ -1,4 +1,4 @@
-const productos = [];
+let productos = window.ColiberLibros.leer();
 
 const cuerpoTabla = document.querySelector(".productos-tabla tbody");
 const buscador = document.querySelector("#buscar-producto");
@@ -53,17 +53,25 @@ function crearFilaProducto(producto) {
     agregarCelda(fila, String(producto.id));
 
     const celdaFoto = agregarCelda(fila, "");
+    function mostrarPortadaGenerica() {
+        const portada = document.createElement("span");
+        portada.className = "productos-portada productos-portada-sin-imagen";
+        portada.textContent = producto.nombre.slice(0, 2).toUpperCase();
+        celdaFoto.append(portada);
+    }
+
     if (producto.foto) {
         const imagen = document.createElement("img");
         imagen.className = "productos-portada";
         imagen.src = producto.foto;
         imagen.alt = "Portada de " + producto.nombre;
+        imagen.onerror = function () {
+            imagen.remove();
+            mostrarPortadaGenerica();
+        };
         celdaFoto.append(imagen);
     } else {
-        const portada = document.createElement("span");
-        portada.className = "productos-portada productos-portada-sin-imagen";
-        portada.textContent = producto.nombre.slice(0, 2).toUpperCase();
-        celdaFoto.append(portada);
+        mostrarPortadaGenerica();
     }
 
     agregarCelda(fila, producto.categoria);
@@ -149,42 +157,101 @@ function mostrarProductos() {
     botonSiguiente.disabled = paginaActual >= totalPaginas;
 }
 
-function agregarProducto(event) {
+// Reduce la imagen antes de guardarla. Las URLs temporales de archivo no sobreviven a una recarga.
+function prepararImagen(archivo) {
+    return new Promise(function (resolver, rechazar) {
+        if (!["image/png", "image/jpeg", "image/webp"].includes(archivo.type)) {
+            rechazar(new Error("Selecciona una imagen PNG, JPG o WebP."));
+            return;
+        }
+
+        const lector = new FileReader();
+        lector.onerror = function () { rechazar(new Error("No se pudo leer la imagen.")); };
+        lector.onload = function () {
+            const imagen = new Image();
+            imagen.onerror = function () { rechazar(new Error("No se pudo abrir la imagen.")); };
+            imagen.onload = function () {
+                try {
+                    const escala = Math.min(1, 600 / imagen.width, 800 / imagen.height);
+                    const lienzo = document.createElement("canvas");
+                    lienzo.width = Math.max(1, Math.round(imagen.width * escala));
+                    lienzo.height = Math.max(1, Math.round(imagen.height * escala));
+                    const dibujo = lienzo.getContext("2d");
+                    dibujo.fillStyle = "#ffffff";
+                    dibujo.fillRect(0, 0, lienzo.width, lienzo.height);
+                    dibujo.drawImage(imagen, 0, 0, lienzo.width, lienzo.height);
+                    resolver(lienzo.toDataURL("image/jpeg", 0.78));
+                } catch {
+                    rechazar(new Error("No se pudo preparar la imagen. Prueba con otro archivo."));
+                }
+            };
+            imagen.src = lector.result;
+        };
+        lector.readAsDataURL(archivo);
+    });
+}
+
+async function agregarProducto(event) {
     event.preventDefault();
 
     const formulario = event.currentTarget;
+    const mensajeError = document.querySelector("#producto-error");
+    mensajeError.hidden = true;
     const archivoActivo = document.querySelector("#fotoProductoArchivoPane").classList.contains("active");
     const archivo = document.querySelector("#productoFotoArchivo").files[0];
     const url = document.querySelector("#productoFotoUrl").value.trim();
-    let foto = "";
 
-    if (archivoActivo) {
-        if (archivo) {
-            foto = URL.createObjectURL(archivo);
+    try {
+        let foto = "";
+        if (archivoActivo && archivo) {
+            foto = await prepararImagen(archivo);
+        } else if (!archivoActivo && url) {
+            const direccion = new URL(url);
+            if (!["http:", "https:"].includes(direccion.protocol)) {
+                throw new Error("La URL de la portada debe empezar por http:// o https://.");
+            }
+            foto = direccion.href;
         }
-    } else {
-        foto = url;
+
+        const producto = {
+            id: document.querySelector("#productoId").value.trim(),
+            foto: foto,
+            categoria: document.querySelector("#productoCategoria").value.trim(),
+            nombre: document.querySelector("#productoNombre").value.trim(),
+            autor: document.querySelector("#productoAutor").value.trim(),
+            precio: Number(document.querySelector("#productoPrecio").value),
+            stock: Number(document.querySelector("#productoStock").value)
+        };
+
+        if (!producto.id || !producto.categoria || !producto.nombre || !producto.autor) {
+            throw new Error("Completa los datos del libro antes de guardarlo.");
+        }
+
+        if (productos.some(function (libro) { return String(libro.id) === producto.id; })) {
+            throw new Error("Ya existe un libro con ese ID.");
+        }
+
+        const nuevosProductos = [...productos, producto];
+        window.ColiberLibros.guardar(nuevosProductos);
+        productos = nuevosProductos;
+        buscador.value = "";
+        filtro.value = "todos";
+        paginaActual = Math.ceil(productos.length / productosPorPagina);
+        mostrarProductos();
+        formulario.reset();
+        if (window.bootstrap) {
+            window.bootstrap.Modal.getOrCreateInstance(document.querySelector("#modalNuevoProducto")).hide();
+        }
+    } catch (error) {
+        if (error.name === "QuotaExceededError") {
+            mensajeError.textContent = "El navegador no tiene espacio para otra portada. Usa una URL o una imagen más pequeña.";
+        } else if (error instanceof TypeError) {
+            mensajeError.textContent = "La URL de la portada no es válida.";
+        } else {
+            mensajeError.textContent = error.message || "No se pudo guardar el libro.";
+        }
+        mensajeError.hidden = false;
     }
-
-    const producto = {
-        id: document.querySelector("#productoId").value.trim(),
-        foto: foto,
-        categoria: document.querySelector("#productoCategoria").value.trim(),
-        nombre: document.querySelector("#productoNombre").value.trim(),
-        autor: document.querySelector("#productoAutor").value.trim(),
-        precio: Number(document.querySelector("#productoPrecio").value),
-        stock: Number(document.querySelector("#productoStock").value)
-    };
-
-    productos.push(producto);
-    buscador.value = "";
-    filtro.value = "todos";
-    paginaActual = Math.ceil(productos.length / productosPorPagina);
-    mostrarProductos();
-    console.log(JSON.stringify(productos, null, 2));
-    formulario.reset();
-
-    bootstrap.Modal.getOrCreateInstance(document.querySelector("#modalNuevoProducto")).hide();
 }
 
 buscador.addEventListener("input", function () {
@@ -213,4 +280,10 @@ botonSiguiente.addEventListener("click", function () {
 });
 
 document.querySelector("#formNuevoProducto").addEventListener("submit", agregarProducto);
+window.addEventListener("storage", function (event) {
+    if (event.key === window.ColiberLibros.clave) {
+        productos = window.ColiberLibros.leer();
+        mostrarProductos();
+    }
+});
 mostrarProductos();

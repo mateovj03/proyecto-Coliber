@@ -915,7 +915,41 @@ section h2 {
 /* Seccion contacto  y personas*/
 
 .seccion-equipo {
-    background: #fff;
+    width: calc(100% - 40px);
+    max-width: 1400px;
+    margin: 30px auto 50px;
+    background: rgba(255, 255, 255, .68);
+    border: 1px solid rgba(255, 255, 255, .85);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(10, 40, 91, .1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.equipo-encabezado {
+    max-width: 680px;
+}
+
+.equipo-encabezado p {
+    color: var(--azul);
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.equipo-encabezado h1 {
+    color: var(--azul);
+    font-size: 2.25rem;
+}
+
+.equipo-encabezado h1::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    margin: 14px auto 0;
+    border-radius: 4px;
+    background: var(--verde-principal);
 }
 
 .titulo-seccion {
@@ -934,10 +968,48 @@ section h2 {
 }
 
 .tarjeta-persona {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid #dce9f3;
     border-radius: 20px;
     background: #fff;
     box-shadow: 0 8px 20px rgba(10, 40, 91, .08);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.tarjeta-persona:hover,
+.tarjeta-persona:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(10, 40, 91, .14);
+}
+
+.enlaces-persona {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.enlaces-persona a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #dce9f3;
+    border-radius: 50%;
+    color: #123a7a;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.enlaces-persona a:hover,
+.enlaces-persona a:focus-visible {
+    color: #fff;
+    background: #123a7a;
 }
 
 .avatar {
@@ -2383,3 +2455,434 @@ section h2 {
     }
 
 }
+
+
+/* Comunidad de Lectores*/
+
+#hero-comunidad,
+.bienvenida-comunidad,
+.contenido-comunidad,
+.clubes-lectura,
+.cta-comunidad {
+    padding: 40px 0;
+}
+
+/* Hero*/
+
+#hero-comunidad {
+    background: linear-gradient(
+        135deg,
+        #fffdf9,
+        #f6f0e8
+    );
+    border-bottom: 1px solid #ece4d8;
+}
+
+.hero-comunidad-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-texto {
+    flex: 1;
+}
+
+.hero-etiqueta {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #f2ebe2;
+    color: #5b3b8c;
+    border-radius: 30px;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.hero-texto h1 {
+    margin-top: 18px;
+    font-size: 3rem;
+    color: #4a2c73;
+    font-weight: 800;
+}
+
+.hero-texto p {
+    margin-top: 16px;
+    color: #5f5f5f;
+    line-height: 1.7;
+}
+
+.hero-botones {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-publicar,
+.btn-grupos {
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-publicar {
+    background: #7046c1;
+    color: white;
+}
+
+.btn-publicar:hover {
+    background: #5d37a5;
+}
+
+.btn-grupos {
+    border: 2px solid #7046c1;
+    color: #7046c1;
+    background: white;
+}
+
+.btn-grupos:hover {
+    background: #7046c1;
+    color: white;
+}
+
+.hero-imagen img {
+    max-width: 380px;
+    width: 100%;
+}
+
+/* Sesión Bienvenida*/
+
+.bienvenida-card {
+    background: white;
+    border: 1px solid #ece3d8;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.04);
+}
+
+.bienvenida-texto h2 {
+    color: #4a2c73;
+    font-weight: 700;
+}
+
+.bienvenida-texto p {
+    color: #666;
+}
+
+.estadisticas {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    text-align: center;
+}
+
+.estadistica i {
+    font-size: 2rem;
+    color: #7046c1;
+}
+
+.estadistica strong {
+    display: block;
+    margin-top: 8px;
+    color: #4a2c73;
+    font-size: 1.3rem;
+}
+
+.estadistica span {
+    color: #666;
+    font-size: .9rem;
+}
+
+/* Sidebar*/
+
+.sidebar-comunidad {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #ece3d8;
+    padding: 20px;
+    height: 100%;
+}
+
+.menu-comunidad {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-comunidad a {
+    text-decoration: none;
+    color: #555;
+    padding: 12px;
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.menu-comunidad a:hover {
+    background: #f8f4ef;
+}
+
+.activo-menu {
+    background: #f2ebe2;
+    color: #4a2c73 !important;
+    font-weight: 700;
+}
+
+.temas-populares {
+    margin-top: 30px;
+}
+
+.temas-populares h3 {
+    color: #4a2c73;
+    margin-bottom: 15px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tags span {
+    background: #f7f2eb;
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-size: .85rem;
+    color: #555;
+}
+
+/* Feed*/
+
+.feed-comunidad {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.publicacion {
+    background: white;
+    border: 1px solid #ece3d8;
+    border-radius: 20px;
+    padding: 25px;
+    transition: .3s;
+}
+
+.publicacion:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.06);
+}
+
+.publicacion-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.publicacion-header img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.publicacion-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.publicacion-header span {
+    color: #888;
+    font-size: .9rem;
+}
+
+.publicacion h4 {
+    margin-top: 20px;
+    color: #4a2c73;
+}
+
+.publicacion p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.acciones-post {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.acciones-post button {
+    border: none;
+    background: #f7f2eb;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Panel Derecho*/
+
+.panel-derecho {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.reto-mes,
+.lectores-destacados,
+.evento {
+    background: white;
+    border: 1px solid #ece3d8;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.reto-mes h3,
+.lectores-destacados h3,
+.evento h3 {
+    color: #4a2c73;
+}
+
+.barra-progreso {
+    width: 100%;
+    height: 12px;
+    border-radius: 20px;
+    background: #ece3d8;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.avance {
+    width: 33%;
+    height: 100%;
+    background: #7046c1;
+}
+
+.lectores-destacados ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.lectores-destacados li {
+    margin-bottom: 10px;
+}
+
+.evento a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    background: #7046c1;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 30px;
+}
+
+/* Clubes*/
+
+.clubes-lectura h2 {
+    text-align: center;
+    color: #4a2c73;
+    margin-bottom: 30px;
+}
+
+.clubes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.club {
+    background: white;
+    border: 1px solid #ece3d8;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    transition: .3s;
+}
+
+.club:hover {
+    transform: translateY(-5px);
+}
+
+.club h3 {
+    color: #4a2c73;
+}
+
+.club p {
+    color: #666;
+}
+
+/* Cuenta Final*/ 
+
+.cta-card {
+    background: linear-gradient(
+        135deg,
+        #f5eee6,
+        #fffaf5
+    );
+
+    border: 1px solid #ebe2d7;
+    border-radius: 25px;
+    text-align: center;
+    padding: 60px 30px;
+}
+
+.cta-card h2 {
+    color: #4a2c73;
+    margin-bottom: 15px;
+}
+
+.cta-card p {
+    color: #666;
+    max-width: 700px;
+    margin: auto;
+}
+
+.btn-unirse {
+    display: inline-block;
+    margin-top: 25px;
+    text-decoration: none;
+    background: #7046c1;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+/* Responsive*/
+
+@media (max-width: 992px) {
+
+    .hero-comunidad-contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .estadisticas {
+        flex-direction: column;
+    }
+
+    .clubes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .hero-texto h1 {
+        font-size: 2rem;
+    }
+
+    .clubes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-botones {
+        justify-content: center;
+    }
+
+}
+
