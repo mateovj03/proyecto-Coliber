@@ -17,85 +17,83 @@
 
 <body>
 
-    <!-- Encabezado -->
+<!-- Encabezado -->
+<header>
 
-    <header>
+    <!-- Barra superior -->
+    <div class="barra-superior">
 
-        <!-- Barra superior -->
+        <a href="#inicio" class="logo">
+            <img src="../../IMG/logo.png" alt="Logo Coliber">
+        </a>
 
-        <div class="barra-superior">
+        <form class="buscador">
+            <button type="submit" class="btn-buscar">
+                <i class="bi bi-search"></i>
+            </button>
 
-            <a href="#inicio" class="logo">
-                <img src="../../IMG/logo.png" alt="Logo Coliber">
+            <input type="search" placeholder="Buscar libro...">
+        </form>
+
+        <div class="acciones-superiores">
+
+            <a href="#login" class="btn-nav usuario">
+                <i class="bi bi-person-circle"></i>
+                <span>Únete</span>
             </a>
 
-            <form class="buscador">
-
-                <button type="submit" class="btn-buscar">
-                    <i class="bi bi-search"></i>
-                </button>
-
-                <input type="search" placeholder="Buscar libro...">
-
-            </form>
-
-            <div class="acciones-superiores">
-
-                <a href="#login" class="btn-nav usuario">
-                    <i class="bi bi-person-circle"></i>
-                    <span>Mi cuenta</span>
-                </a>
-
-                <a href="#carrito" class="btn-nav carrito">
-                    <i class="bi bi-cart3"></i>
-                    <span>Carrito</span>
-                </a>
-
-            </div>
+            <a href="#carrito" class="btn-nav carrito">
+                <i class="bi bi-cart3"></i>
+                <span>Carrito</span>
+            </a>
 
         </div>
 
-        <!-- Menú principal -->
+    </div>
 
-        <nav class="menu-principal">
+    <!-- Menú principal -->
+    <nav class="menu-principal">
 
-            <a href="inicio.html" class="activo">
-                <i class="bi bi-house-door"></i>
-                <span>Inicio</span>
-            </a>
+        <a href="inicio.html" class="activo">
+            <i class="bi bi-house-door"></i>
+            <span>Inicio</span>
+        </a>
 
-            <a href="catalogo.html">
-                <i class="bi bi-book"></i>
-                <span>Catálogo</span>
-            </a>
+        <a href="catalogo.html">
+            <i class="bi bi-book"></i>
+            <span>Catálogo</span>
+        </a>
 
-            <a href="comunidad.html">
-                <i class="bi bi-people"></i>
-                <span>Comunidad</span>
-            </a>
+        <a href="comunidad.html">
+            <i class="bi bi-people"></i>
+            <span>Comunidad</span>
+        </a>
 
-            <a href="autores.html">
-                <i class="bi bi-feather"></i>
-                <span>Autores</span>
-            </a>
-            <a href="resenasNovedades.html">
-    <i class="bi bi-star"></i>
-    <span>Reseñas y Novedades</span>
-</a>
-            <a href="contacto.html">
-                <i class="bi bi-envelope"></i>
-                <span>Contacto</span>
-            </a>
+        <a href="autores.html">
+            <i class="bi bi-feather"></i>
+            <span>Autores</span>
+        </a>
 
-            <a href="acercaDeNosotros.html">
-                <i class="bi bi-info-circle"></i>
-                <span>Acerca de nosotros</span>
-            </a>
-        </nav>
+        <a href="resenasNovedades.html">
+            <i class="bi bi-star"></i>
+            <span>Reseñas y Novedades</span>
+        </a>
 
-    </header>
+        <a href="contacto.html">
+            <i class="bi bi-envelope"></i>
+            <span>Contacto</span>
+        </a>
 
-    <main>
+        <a href="acercaDeNosotros.html">
+            <i class="bi bi-info-circle"></i>
+            <span>Acerca de nosotros</span>
+        </a>
+
+    </nav>
+
+</header>
+
+<main>
 
     <!-- Carrusel Inicial -->
 
@@ -362,21 +360,47 @@
 
 </main>
       
-   <footer class="footer-coliber">
-        <div class="footer-contenido">
-            <div class="footer-marca">
-              <a href="#inicio" class="footer-logo">
-    <img src="../../IMG/logoblanco.png" alt="Logo de Coliber">
-</a>
+   
 
-                <p class="footer-eslogan">
-                    Historias que nos unen,<br>
-                    libros que nos transforman.
-                </p>
+<footer class="footer-coliber">
 
-                <div class="footer-redes">
-                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer"
-                        aria-label="WhatsApp">
+    <div class="footer-contenido">
+
+        <div class="footer-marca">
+
+            <a href="inicio.html" class="footer-logo">
+                <img src="../../IMG/logoblanco.png" alt="Logo de Coliber">
+            </a>
+
+            <p class="footer-eslogan">
+                Historias que nos unen, libros que nos transforman.
+            </p>
+
+        </div>
+
+        <div class="footer-informacion">
+
+            <h3>Explora y conoce Coliber</h3>
+
+            <a href="#">Novedades Editoriales</a>
+            <a href="#">Autores Colombianos</a>
+            <a href="#">Conoce Coliber</a>
+            <a href="#">Términos y Condiciones del Servicio</a>
+          
+        </div>
+
+        <div class="footer-seguridad">
+
+            <i class="bi bi-shield-lock-fill"></i>
+            <span>Compra 100% Segura</span>
+
+            <div class="footer-redes">
+
+                <h3>Síguenos en Redes</h3>
+
+                <div class="footer-iconos">
+
+                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                         <i class="bi bi-whatsapp"></i>
                     </a>
 
@@ -387,48 +411,22 @@
                     <a href="mailto:colibercolombia@gmail.com" aria-label="Correo electrónico">
                         <i class="bi bi-envelope-fill"></i>
                     </a>
+
                 </div>
+
             </div>
 
-            <div class="footer-columna">
-                <h3><span class="footer-icono">▣</span> Explora</h3>
-                <a href="#inicio">Inicio <span>›</span></a>
-                <a href="#catalogo">Catálogo <span>›</span></a>
-                <a href="#comunidad">Comunidad <span>›</span></a>
-                <a href="#autores">Autores <span>›</span></a>
-            </div>
-
-            <div class="footer-columna footer-conocenos">
-                <h3><span class="footer-icono footer-icono-verde">♧</span> Conócenos</h3>
-                <a href="acercaDeNosotros.html">
-                    Acerca de nosotros <span>›</span>
-                </a>
-                <a href="contacto.html">Contáctanos <span>›</span></a>
-            </div>
-
-            <div class="footer-contacto">
-                <h3>
-                    <span class="footer-icono footer-icono-morado">✉</span>
-                    ¡Sigamos en contacto!
-                </h3>
-
-                <p>
-                    Descubre libros, conecta con lectores y encuentra
-                    tu próxima historia favorita.
-                </p>
-
-                <a href="#catalogo" class="footer-boton">
-                    Explorar Coliber <span>→</span>
-                </a>
-            </div>
         </div>
 
-        <div class="footer-inferior">
-            <span>✦</span>
-            <p>© 2026 Coliber - Generation Colombia.</p>
-            <span>✦</span>
-        </div>
-    </footer>
+    </div>
+
+    <div class="footer-inferior">
+        <p>© 2026 Coliber - Generation Colombia.</p>
+    </div>
+
+</footer>
+<!-- Chat bot emergente -->
+
     <!-- Chat bot emergente -->
     <div id="chat-coliber"></div>
 
