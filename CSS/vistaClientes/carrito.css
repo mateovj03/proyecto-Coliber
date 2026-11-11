@@ -1,0 +1,58 @@
+.rovent-cart, 
+.rovent-cart h2, 
+.rovent-cart h6, 
+.rovent-cart strong,
+.rovent-cart span {
+    color: var(--azul) !important; 
+}
+
+
+.rovent-cart h2{
+    font-weight: 700;
+    font-family: 'Segoe UI', sans-serif;
+}
+/* subtotal */
+.rovent-cart .cart-subtotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.rovent-cart {
+    background-color:#F5F7FA !important; 
+    color: var(--azul);
+}
+/* bordes */
+.rovent-cart .offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.rovent-cart .border-bottom {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* boton finalizar compra*/
+.btn-rovent-checkout {
+    color: var(--verde-principal);
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+.btn-rovent-checkout:hover {
+    background-color: var(--verde-principal);
+    color: var(--blanco);
+}
+/* + y - */
+.rovent-cart .btn-outline-light {
+    border-color: var(--morado);
+    color: var(--azul);
+}
+
+.rovent-cart .btn-outline-light:hover {
+    color: var(--blanco);
+    background-color: var(--morado);
+}
+
