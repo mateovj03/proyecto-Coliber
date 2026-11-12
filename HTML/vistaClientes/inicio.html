@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../CSS/estilos.css">
     <link rel="stylesheet" href="../../CSS/chatbot.css"> <!-- Estilos Chat bot -->
     <link rel="stylesheet" href="../../CSS/vistaClientes/carrito.css">
+    <link rel="stylesheet" href="../../CSS/vistaClientes/unete.css">
 
 </head>
 
@@ -38,12 +39,14 @@
 
             <div class="acciones-superiores">
 
-                <a href="#login" class="btn-nav usuario">
+                <a href="#login" class="btn-nav usuario" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUnete"
+                    aria-controls="offcanvasUnete">
                     <i class="bi bi-person-circle"></i>
                     <span>Únete</span>
                 </a>
 
-                <a href="#carrito" class="btn-nav carrito" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                <a href="#carrito" class="btn-nav carrito" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-cart3"></i>
                     <span>Carrito</span>
                     <span id="cart-counter" class="cart-count" aria-label="0 productos en el carrito">0</span> <!-- Contador de productos en el carrito -->
@@ -323,36 +326,135 @@
 
     </main>
 
-             <!-- Modal carrito offcanvas.  -->
-        <aside class="offcanvas offcanvas-end text-bg-dark rovent-cart" data-bs-scroll="true" tabindex="-1"
-            id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-            <div class="offcanvas-header">
-                <div>
-                    <h2 class="offcanvas-title h4 mb-1" id="offcanvasWithBothOptionsLabel"><i class="bi bi-cart3 cart-header-icon" aria-hidden="true"></i>Mi Carrito</h2> <!-- Icono de carrito -->
-                    <span>Tus productos</span>
-                </div>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                    aria-label="Cerrar carrito"></button>
+
+
+    <!-- Modal carrito offcanvas.  -->
+
+    <aside class="offcanvas offcanvas-end text-bg-dark rovent-cart" data-bs-scroll="true" tabindex="-1"
+        id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+            <div>
+                <h2 class="offcanvas-title h4 mb-1" id="offcanvasWithBothOptionsLabel">Mi Carrito</h2>
+                <span>Tus productos</span>
             </div>
-            <div class="offcanvas-body cart-items" id="cart-items" aria-live="polite">
-                <!-- JavaScript inserta aquí los productos y sus controles de cantidad. -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Cerrar carrito"></button>
+        </div>
+        <div class="offcanvas-body cart-items" id="cart-items" aria-live="polite">
+            <!-- JavaScript inserta aquí los productos y sus controles de cantidad. -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <strong id="cart-total">$0</strong>
             </div>
-            <div class="cart-footer">
-                <div class="cart-subtotal">
-                    <span>Subtotal</span>
-                    <strong id="cart-total">$0</strong>
-                </div>
-                <div class="text-center my-2">
-                    <small class="text-muted">🚚 Envío disponible a todo Colombia</small>
-                </div>
-                <button class="btn btn-outline-danger w-100" id="clear-cart-btn" type="button">
-                    Vaciar carrito
+            <div class="text-center my-2">
+                <small class="text-muted">🚚 Envío disponible a todo Colombia</small>
+            </div>
+            <button class="btn btn-outline-danger w-100" id="clear-cart-btn" type="button">
+                Vaciar carrito
+            </button>
+            <button class="btn btn-rovent-checkout w-100" id="checkout-btn" type="button">
+                Finalizar compra
+            </button>
+        </div>
+    </aside>
+
+
+    <!-- modal unete -->
+
+    <aside class="offcanvas offcanvas-end text-bg-dark rovent-cart" data-bs-scroll="true" tabindex="-1"
+        id="offcanvasUnete" aria-labelledby="offcanvasUneteLabel">
+        <div class="offcanvas-header">
+            <div>
+                <h2 class="offcanvas-title h4 mb-1" id="offcanvasUneteLabel">Mi Cuenta</h2>
+                <span>Tu cuenta en Coliber</span>
+            </div>
+
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <!-- panel 1 de inicio de sesion  -->
+        <div id="panel-principal" class="auth-panel">
+            <div class="d-grid gap-2 mt-3">
+                <button class="btn btn-outline-light w-100" id="register-btn" type="button">
+                    Regístrate
                 </button>
-                <button class="btn btn-rovent-checkout w-100" id="checkout-btn" type="button">
-                    Finalizar compra
+                <button class="btn btn-rovent-checkout w-100" id="login-btn" type="button">
+                    Inicia sesión
+                </button>
+                <!-- btn google -->
+                <button class="btn btn-google w-100" id="google-login-btn" type="button">
+                    <!-- svg de icono google -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48">
+                        <path fill="#EA4335"
+                            d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                        <path fill="#4285F4"
+                            d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                        <path fill="#FBBC05"
+                            d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                        <path fill="#34A853"
+                            d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.46-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+                    </svg>
+                    Continuar con Google
                 </button>
             </div>
-        </aside>
+        </div>
+
+        <!-- panel 2 de registro -->
+        <div id="panel-registro" class="auth-panel d-none"><!-- d-done para ocultar o mostrar el panel -->
+            <form id="form-registro" class="mt-2">
+                <div class="mb-3">
+                    <label for="reg-nombre" class="form-label ">Nombre </label>
+                    <input type="text" class="form-control" id="reg-nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reg-email" class="form-label ">Correo electrónico</label>
+                    <input type="email" class="form-control" id="reg-email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reg-telefono" class="form-label ">Número de teléfono</label>
+                    <input type="tel" class="form-control" id="reg-telefono" placeholder="Ej: 3001234567" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reg-password" class="form-label ">Contraseña</label>
+                    <input type="password" class="form-control" id="reg-password" required>
+                </div>
+                <button type="submit" class="btn btn-rovent-checkout w-100 mb-3">Crear cuenta</button>
+            </form>
+
+            <div class="text-center mt-3">
+                <button type="button"
+                    class="back-to-main-btn btn btn-link text-light text-decoration-none d-inline-flex align-items-center gap-2">
+                    <i class="bi bi-arrow-left"></i> Volver
+                </button>
+            </div>
+        </div>
+
+
+        <!-- panel 3 inicio sesion -->
+         <div id="panel-login" class="auth-panel d-none">
+            <form id="form-login" class="mt-2">
+                <div class="mb-3">
+                    <label for="login-email" class="form-label ">Correo electrónico</label>
+                    <input type="email" class="form-control" id="login-email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="login-password" class="form-label ">Contraseña</label>
+                    <input type="password" class="form-control" id="login-password" required>
+                </div>
+                <button type="submit" class="btn btn-rovent-checkout w-100 mb-3">Entrar</button>
+            </form>
+
+            <div class="text-center mt-3">
+                <button type="button" class="back-to-main-btn btn btn-link text-light text-decoration-none d-inline-flex align-items-center gap-2">
+                    <i class="bi bi-arrow-left"></i> Volver
+                </button>
+            </div>
+        </div>
+
+
+    </aside>
 
 
 
@@ -435,6 +537,7 @@
     <script type="module" src="../../JS/chatbot.js"></script> <!-- Js chatbot -->
     <script src="../../JS/libros-storage.js" defer></script>
     <script src="../../JS/carrito.js" defer></script>
+    <script src="../../JS/unete.js"></script>
 </body>
 
 </html>
