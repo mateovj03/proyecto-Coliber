@@ -66,6 +66,13 @@
     border-radius: 14px;
     background: var(--blanco);
     box-shadow: 0 6px 20px rgba(26, 43, 78, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+/* Hover sobre la tarjeta del libro */
+.catalogo-tarjeta:hover,
+.catalogo-tarjeta:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 26px rgba(26, 43, 78, 0.14);
 }
 
 .catalogo-portada {
@@ -146,6 +153,47 @@
     margin-top: 13px;
     color: #000000;
     font-size: 21px;
+}
+/* Estilos para el botón de comprar */
+.catalogo-comprar {
+    width: 100%;
+    margin-top: 14px;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 8px;
+    background: #2A2C8F;
+    color: #fff;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.catalogo-tarjeta:hover .catalogo-comprar,
+.catalogo-tarjeta:focus-within .catalogo-comprar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.catalogo-comprar:not(:disabled) { cursor: pointer; }
+
+.catalogo-comprar:not(:disabled):hover { background: #1F216E; }
+
+.catalogo-comprar:focus-visible {
+    outline: 3px solid var(--verde-principal);
+    outline-offset: 2px;
+}
+
+.catalogo-comprar:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+@media (hover: none) {
+    .catalogo-comprar {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 .catalogo-vacio {
