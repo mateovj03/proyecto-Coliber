@@ -48,13 +48,21 @@ function crearTarjeta(libro) {
     datos.append(disponibilidad);
     const precio = crearTexto("strong", "catalogo-precio", precioCatalogo.format(Number(libro.precio)));
 
-    tarjeta.append(portada, categoria, nombre, autor, datos, precio);
-
-    //Boton añadir carrito
+    // Botón de compra de cada libro
     const botonComprar = document.createElement("button");
-    botonComprar.className = "btn btn-primary btn-sm w-100 mt-2";
-    botonComprar.textContent = stock > 0 ? "Añadir al carrito" : "Agotado";
-    botonComprar.disabled = stock === 0;
+    botonComprar.type = "button";
+    botonComprar.className = "catalogo-comprar";
+    botonComprar.dataset.libroId = String(libro.id);
+    botonComprar.disabled = stock <= 0;
+
+    if (stock > 0) {
+        const iconoCarrito = document.createElement("i");
+        iconoCarrito.className = "bi bi-cart3";
+        iconoCarrito.setAttribute("aria-hidden", "true");
+        botonComprar.append(iconoCarrito, document.createTextNode(" Añadir al carrito"));
+    } else {
+        botonComprar.textContent = "Agotado";
+    }
 
     botonComprar.addEventListener("click", () => {
         let libros = window.ColiberLibros.leer();
@@ -83,7 +91,7 @@ function crearTarjeta(libro) {
 
         mostrarCatalogo(); // Refresca catálogo para actualizar el stock visible
         //se actualiza al instante
-        if(window.ColiberCarrito && typeof window.ColiberCarrito.actualizar === "function"){
+        if (window.ColiberCarrito && typeof window.ColiberCarrito.actualizar === "function") {
             window.ColiberCarrito.actualizar();
         }
 

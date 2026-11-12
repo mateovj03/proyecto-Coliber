@@ -2,9 +2,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const CLAVE_CARRITO = "coliber-carrito-v1";
 
     const contenedorCarrito = document.getElementById("cart-items");
+    const contadorCarrito = document.getElementById("cart-counter"); // Elemento para cantidad de productos
     const totalCarritoElem = document.getElementById("cart-total");
     const btnVaciarCarrito = document.getElementById("clear-cart-btn");
     const btnCheckout = document.getElementById("checkout-btn");
+    const panelCarrito = document.getElementById("offcanvasWithBothOptions");
+
+    if (panelCarrito) {
+        panelCarrito.addEventListener("show.bs.offcanvas", () => {
+            document.body.classList.add("carrito-abierto");
+        });
+        panelCarrito.addEventListener("hidden.bs.offcanvas", () => {
+            document.body.classList.remove("carrito-abierto");
+        });
+    }
 
     const precioColombiano = new Intl.NumberFormat("es-CO", {
         style: "currency",
@@ -15,7 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function leerCarrito() {
         try {
             const guardado = localStorage.getItem(CLAVE_CARRITO);
-            return guardado ? JSON.parse(guardado) : [];
+            const carrito = guardado ? JSON.parse(guardado) : []; // Devuelve un array vacío si no hay datos
+            return Array.isArray(carrito) ? carrito : []; // Asegura que siempre se devuelva un array
         } catch {
             return [];
         }
@@ -27,15 +39,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Dibuja los productos en el offcanvas de Bootstrap
     function renderizarCarrito() {
-        if (!contenedorCarrito) return;
         
         const carrito = leerCarrito();
+        const cantidadTotal = carrito.reduce((total, item) => total + (Number(item.cantidad) || 0), 0); // Suma la cantidad de cada item, asegurando que sea un número
+        if (contadorCarrito) { // Actualiza el contador de productos en el carrito
+            contadorCarrito.textContent = cantidadTotal; // Actualiza el número visible en el icono del carrito
+            contadorCarrito.setAttribute("aria-label", `${cantidadTotal} productos en el carrito`); // Mejora de accesibilidad para lectores de pantalla
+        }
+
+        if (!contenedorCarrito) return; // Si no existe el contenedor, no hace nada
         contenedorCarrito.innerHTML = "";
 
-        if (carrito.length === 0) {
+        if (carrito.length === 0) {  // Si el carrito está vacío, muestra un mensaje
             contenedorCarrito.innerHTML = `
-                <div class="text-center text-muted my-5">
-                    <i class="bi bi-cart-x fs-1 d-block mb-2"></i>
+                <div class="cart-empty"> 
+                    <i class="bi bi-cart-x" aria-hidden="true"></i>
                     <p>Tu carrito está vacío</p>
                 </div>`;
             if (totalCarritoElem) totalCarritoElem.textContent = precioColombiano.format(0);
@@ -48,21 +66,25 @@ document.addEventListener("DOMContentLoaded", () => {
             const subtotalItem = item.precio * item.cantidad;
             total += subtotalItem;
 
+            const portada = item.foto // Si hay foto, la muestra; si no, muestra un placeholder
+                ? `<img src="${item.foto}" alt="Portada de ${item.nombre}" class="cart-item-image">` // Si hay foto, la muestra
+                : '<div class="cart-item-image cart-item-placeholder" aria-hidden="true"><i class="bi bi-book"></i></div>'; // Si no hay foto, muestra un placeholder
+
             const divItem = document.createElement("div");
-            divItem.className = "d-flex align-items-center justify-content-between mb-3 border-bottom border-secondary pb-3";
+            divItem.className = "cart-item"; // Clase para cada item del carrito
             divItem.innerHTML = `
-                <div class="d-flex align-items-center gap-2">
-                    <img src="${item.foto}" alt="${item.nombre}" style="width: 65px; height: 90px; object-fit: cover;" class="rounded bg-light">
-                    <div>
-                        <h6 class="mb-0 text-white text-truncate" style="max-width: 130px;">${item.nombre}</h6>
-                        <small class="text-muted">${precioColombiano.format(item.precio)} c/u</small>
+                <div class="cart-item-producto">
+                    ${portada}
+                    <div class="cart-item-info">
+                        <h3 class="cart-item-name">${item.nombre}</h3>
+                        <small class="cart-item-price">${precioColombiano.format(item.precio)} c/u</small>
                     </div>
                 </div>
-                <div class="d-flex align-items-center gap-2">
-                    <button class="btn btn-sm btn-outline-light disminuir px-2 py-0" data-id="${item.id}">-</button>
-                    <span class="text-white fw-bold">${item.cantidad}</span>
-                    <button class="btn btn-sm btn-outline-light aumentar px-2 py-0" data-id="${item.id}">+</button>
-                    <button class="btn btn-sm btn-outline-danger eliminar border-0" data-id="${item.id}" title="Eliminar"><i class="bi bi-trash"></i></button>
+                <div class="cart-item-controls">
+                    <button class="cart-quantity-button disminuir" type="button" data-id="${item.id}" aria-label="Disminuir cantidad">−</button>
+                    <span class="cart-quantity">${item.cantidad}</span>
+                    <button class="cart-quantity-button aumentar" type="button" data-id="${item.id}" aria-label="Aumentar cantidad">+</button>
+                    <button class="cart-remove-button eliminar" type="button" data-id="${item.id}" aria-label="Eliminar del carrito"><i class="bi bi-trash" aria-hidden="true"></i></button>
                 </div>
             `;
             contenedorCarrito.appendChild(divItem);
