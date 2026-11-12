@@ -115,3 +115,9 @@
     font-size: 0.75rem;
     letter-spacing: 0;
 }
+
+/* Oculta el asistente mientras está abierto el carrito */
+.carrito-abierto #chat-coliber,
+.carrito-abierto .n8n-chat {
+    visibility: hidden;
+}
