@@ -402,24 +402,127 @@
 
         <!-- panel 2 de registro -->
         <div id="panel-registro" class="auth-panel d-none"><!-- d-done para ocultar o mostrar el panel -->
+            
+            <form id="form-registro" class="mt-2">
+
+                 <!-- Encabezado del Registro -->
+                <div class="registro-titulo">
+                    <i class="bi bi-book-half"></i>
+                    <h3>Crea tu cuenta</h3>
+                    <p>Únete a nuestra comunidad lectora y vive la experiencia Coliber.</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="reg-nombre" class="form-label ">Nombre Completo</label>
+                     <i class="bi bi-person"></i>
             <form id="form-registro" class="mt-2" novalidate>
                 <div class="mb-3">
-                    <label for="reg-nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="reg-nombre" required>
+                    <label for="reg-nombre" class="form-label">Nombre</label>                    <input type="text" class="form-control" id="reg-nombre" required>
                     <div class="invalid-feedback">Escribe tu nombre.</div>
                 </div>
+               
                 <div class="mb-3">
+
+                    <label for="reg-email" class="form-label ">Correo Electrónico</label>
+                    <i class="bi bi-envelope"></i>
+                    <input type="email" class="form-control" id="reg-email"  placeholder="Correo electrónico" autocomplete="email" required> 
+
                     <label for="reg-email" class="form-label">Correo electrónico</label>
                     <input type="email" class="form-control" id="reg-email" required>
                     <div class="invalid-feedback">Escribe un correo válido.</div>
+
                 </div>
+                
                 <div class="mb-3">
+
+                    <label for="reg-telefono" class="form-label ">Número de Celular</label>
+                    <i class="bi bi-telephone"></i>
+                    <input type="tel" class="form-control" id="reg-telefono" placeholder="Ej: +57 300 123 4567" autocomplete="tel" required>
+
                     <label for="reg-telefono" class="form-label">Número de teléfono</label>
                     <input type="tel" class="form-control" id="reg-telefono" placeholder="Ej: 3001234567" required>
                     <div class="invalid-feedback">Ingresa un número de teléfono válido.</div>
+
                 </div>
+
                 <div class="mb-3">
                     <label for="reg-password" class="form-label">Contraseña</label>
+
+
+                    <div class="registro-campo">
+                        <i class="bi bi-lock"></i>
+
+                        <input type="password" class="form-control" id="reg-password"
+                            placeholder="Contraseña" autocomplete="new-password"
+                            minlength="8"
+                            pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9\s]).{8,}"
+                            title="Mínimo 8 caracteres, una mayúscula, un número y un carácter especial."
+                            aria-describedby="reg-password-help" required>
+
+                        <button type="button" class="registro-ver-password"
+                            data-password-target="reg-password"
+                            aria-label="Mostrar contraseña">
+                            <i class="bi bi-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Requisitos de contraseña -->
+                <div class="registro-ayuda-contenedor">
+
+                    <button type="button" class="registro-ayuda-btn"
+                        id="registro-ayuda-btn"
+                        aria-expanded="false"
+                        aria-controls="reg-password-help">
+
+                        <i class="bi bi-info-circle"></i>
+                        <span>Requisitos de la contraseña</span>
+                        <i class="bi bi-chevron-down registro-flecha"></i>
+
+                    </button>
+
+                    <div class="registro-ayuda" id="reg-password-help" hidden>
+
+                        Tu contraseña debe contener:
+
+                        <ul>
+                            <li>Mínimo 8 caracteres.</li>
+                            <li>Al menos una letra mayúscula.</li>
+                            <li>Al menos un número.</li>
+                            <li>Al menos un carácter especial.</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="reg-confirm-password" class="form-label">
+                        Confirmar contraseña
+                    </label>
+
+                    <div class="registro-campo">
+                        <i class="bi bi-shield-lock"></i>
+
+                        <input type="password" class="form-control"
+                            id="reg-confirm-password"
+                            placeholder="Confirmar contraseña"
+                            autocomplete="new-password" required>
+
+                        <button type="button" class="registro-ver-password"
+                            data-password-target="reg-confirm-password"
+                            aria-label="Mostrar confirmación de contraseña">
+                            <i class="bi bi-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <small id="reg-password-match" class="registro-coincidencia"></small>
+
+                <button type="submit" class="btn btn-rovent-checkout w-100 mb-3">
+                     <i class="bi bi-person-plus"></i>
+                      Crear cuenta
+                </button>
                     <input type="password" class="form-control" id="reg-password" required>
                     <div class="invalid-feedback">Escribe una contraseña.</div>
                 </div>
@@ -428,11 +531,14 @@
             </form>
 
             <div class="text-center mt-3">
+                
                 <button type="button"
                     class="back-to-main-btn btn btn-link text-light text-decoration-none d-inline-flex align-items-center gap-2">
-                    <i class="bi bi-arrow-left"></i> Volver
+                    <i class="bi bi-arrow-left"></i> 
+                    Volver
                 </button>
             </div>
+
         </div>
 
 
