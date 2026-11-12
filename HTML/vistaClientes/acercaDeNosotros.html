@@ -48,6 +48,7 @@
                 <a href="#carrito" class="btn-nav carrito" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-cart3"></i>
                     <span>Carrito</span>
+                    <span id="cart-counter" class="cart-count" aria-label="0 productos en el carrito">0</span> <!-- Contador de productos en el carrito -->
                 </a>
 
             </div>
@@ -383,7 +384,7 @@
             id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="offcanvas-header">
                 <div>
-                    <h2 class="offcanvas-title h4 mb-1" id="offcanvasWithBothOptionsLabel">Mi Carrito</h2>
+                    <h2 class="offcanvas-title h4 mb-1" id="offcanvasWithBothOptionsLabel"><i class="bi bi-cart3 cart-header-icon" aria-hidden="true"></i>Mi Carrito</h2> <!-- Icono de carrito -->
                     <span>Tus productos</span>
                 </div>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
@@ -476,11 +477,14 @@
         </div>
 
     </footer>
+    <!-- Chat bot emergente -->
+    <div id="chat-coliber"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../JS/script.js"></script> <!-- Esto nos enlaza con nuestro js -->
     <script src="../../JS/libros-storage.js" defer></script>
     <script src="../../JS/carrito.js" defer></script>
+    <script type="module" src="../../JS/chatbot.js"></script> <!-- Js chatbot -->
 </body>
 
 </html>
