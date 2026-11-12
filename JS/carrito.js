@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (contadorCarrito) { // Actualiza el contador de productos en el carrito
             contadorCarrito.textContent = cantidadTotal; // Actualiza el número visible en el icono del carrito
             contadorCarrito.setAttribute("aria-label", `${cantidadTotal} productos en el carrito`); // Mejora de accesibilidad para lectores de pantalla
+            contadorCarrito.classList.toggle("con-productos", cantidadTotal > 0); // Cambia la clase si hay productos en el carrito
         }
 
         if (!contenedorCarrito) return; // Si no existe el contenedor, no hace nada

@@ -2,6 +2,7 @@
 .btn-nav.carrito { position: relative; }
 
 .cart-count {
+    display: none; /* Oculto si no hay productos */
     position: absolute;
     top: -8px;
     right: -8px;
@@ -16,6 +17,10 @@
     font-weight: 700;
     line-height: 16px;
     text-align: center;
+}
+
+.cart-count.con-productos {
+    display: block;
 }
 
 /* Panel lateral del carrito */
