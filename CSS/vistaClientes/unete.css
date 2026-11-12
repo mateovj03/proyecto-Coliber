@@ -1,0 +1,48 @@
+
+
+/* boton registrate */
+#register-btn {
+    color: var(--azul);
+    border-color: var(--verde-morado);
+}
+
+#register-btn:hover {
+    color: var(--blanco);
+    background-color: var(--morado);
+}
+/* boton iniciar sesion */
+#login-btn {
+    color: var(--azul);
+    border-color: var(--verde-morado);
+}
+
+#login-btn:hover {
+    color: var(--blanco);
+    background-color: var(--morado);
+}
+
+/* boton google */
+.btn-google {
+    background-color: var(--blanco) !important;
+    color: #212529 !important;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-google:hover {
+    background-color: var(--verde-principal) !important;
+}
+
+
+/* Botón de volver atrás */
+.back-to-main-btn {
+    color: var(--azul) !important;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
