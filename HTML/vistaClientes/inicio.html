@@ -415,23 +415,39 @@
                 <div class="mb-3">
                     <label for="reg-nombre" class="form-label ">Nombre Completo</label>
                      <i class="bi bi-person"></i>
-                    <input type="text" class="form-control" id="reg-nombre" required>
+            <form id="form-registro" class="mt-2" novalidate>
+                <div class="mb-3">
+                    <label for="reg-nombre" class="form-label">Nombre</label>                    <input type="text" class="form-control" id="reg-nombre" required>
+                    <div class="invalid-feedback">Escribe tu nombre.</div>
                 </div>
                
                 <div class="mb-3">
+
                     <label for="reg-email" class="form-label ">Correo Electrónico</label>
                     <i class="bi bi-envelope"></i>
                     <input type="email" class="form-control" id="reg-email"  placeholder="Correo electrónico" autocomplete="email" required> 
+
+                    <label for="reg-email" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="reg-email" required>
+                    <div class="invalid-feedback">Escribe un correo válido.</div>
+
                 </div>
                 
                 <div class="mb-3">
+
                     <label for="reg-telefono" class="form-label ">Número de Celular</label>
                     <i class="bi bi-telephone"></i>
                     <input type="tel" class="form-control" id="reg-telefono" placeholder="Ej: +57 300 123 4567" autocomplete="tel" required>
+
+                    <label for="reg-telefono" class="form-label">Número de teléfono</label>
+                    <input type="tel" class="form-control" id="reg-telefono" placeholder="Ej: 3001234567" required>
+                    <div class="invalid-feedback">Ingresa un número de teléfono válido.</div>
+
                 </div>
 
                 <div class="mb-3">
                     <label for="reg-password" class="form-label">Contraseña</label>
+
 
                     <div class="registro-campo">
                         <i class="bi bi-lock"></i>
@@ -507,7 +523,11 @@
                      <i class="bi bi-person-plus"></i>
                       Crear cuenta
                 </button>
-
+                    <input type="password" class="form-control" id="reg-password" required>
+                    <div class="invalid-feedback">Escribe una contraseña.</div>
+                </div>
+                <p id="mensajeRegistro" class="small fw-semibold mb-2" role="status" aria-live="polite"></p>
+                <button type="submit" class="btn btn-rovent-checkout w-100 mb-3">Crear cuenta</button>
             </form>
 
             <div class="text-center mt-3">

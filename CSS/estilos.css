@@ -1110,6 +1110,14 @@ section h2 {
     background: #18a264;
 }
 
+.form-container .boton-coliber {
+  width: auto;
+}
+
+.form-container .boton-coliber:hover {
+  color: #fff;
+}
+
 .foto-equipo {
     display: block;
     width: 92px;
@@ -2455,7 +2463,7 @@ section h2 {
     }
 
 }
-
+/* ==================================================================================*/
 
 /* Comunidad de Lectores*/
 
@@ -2812,4 +2820,3 @@ section h2 {
     }
 
 }
-
