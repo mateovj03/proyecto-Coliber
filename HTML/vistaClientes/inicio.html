@@ -402,23 +402,28 @@
 
         <!-- panel 2 de registro -->
         <div id="panel-registro" class="auth-panel d-none"><!-- d-done para ocultar o mostrar el panel -->
-            <form id="form-registro" class="mt-2">
+            <form id="form-registro" class="mt-2" novalidate>
                 <div class="mb-3">
-                    <label for="reg-nombre" class="form-label ">Nombre </label>
+                    <label for="reg-nombre" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="reg-nombre" required>
+                    <div class="invalid-feedback">Escribe tu nombre.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="reg-email" class="form-label ">Correo electrónico</label>
+                    <label for="reg-email" class="form-label">Correo electrónico</label>
                     <input type="email" class="form-control" id="reg-email" required>
+                    <div class="invalid-feedback">Escribe un correo válido.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="reg-telefono" class="form-label ">Número de teléfono</label>
+                    <label for="reg-telefono" class="form-label">Número de teléfono</label>
                     <input type="tel" class="form-control" id="reg-telefono" placeholder="Ej: 3001234567" required>
+                    <div class="invalid-feedback">Ingresa un número de teléfono válido.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="reg-password" class="form-label ">Contraseña</label>
+                    <label for="reg-password" class="form-label">Contraseña</label>
                     <input type="password" class="form-control" id="reg-password" required>
+                    <div class="invalid-feedback">Escribe una contraseña.</div>
                 </div>
+                <p id="mensajeRegistro" class="small fw-semibold mb-2" role="status" aria-live="polite"></p>
                 <button type="submit" class="btn btn-rovent-checkout w-100 mb-3">Crear cuenta</button>
             </form>
 

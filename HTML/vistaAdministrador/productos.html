@@ -97,8 +97,8 @@
 
 
                         <div class="productos-acciones" aria-label="Acciones de productos">
-                            <button class="productos-boton productos-boton-principal" type="button"
-                                data-bs-toggle="modal" data-bs-target="#modalNuevoProducto">
+                            <button class="productos-boton productos-boton-principal" id="botonNuevoProducto"
+                                type="button">
                                 <i class="bi bi-plus-lg" aria-hidden="true"></i> Nuevo
                             </button>
                             <button class="productos-boton productos-boton-secundario" type="button">
@@ -170,12 +170,7 @@
                 <div class="modal-body">
                     <form id="formNuevoProducto">
                         <div class="row g-3">
-                            <div class="col-md-3">
-                                <label for="productoId" class="form-label">ID</label>
-                                <input type="text" class="form-control" id="productoId" placeholder="Ej. #001" required>
-                            </div>
-
-                            <div class="col-md-9">
+                            <div class="col-12">
                                 <label class="form-label" for="productoFotoArchivo">Foto del producto</label>
                                 <ul class="nav nav-tabs mb-2" id="fotoProductoTab" role="tablist">
                                     <li class="nav-item" role="presentation">
@@ -243,8 +238,12 @@
                 </div>
 
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-danger me-auto" id="botonEliminarProducto" hidden>
+                        Eliminar
+                    </button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" form="formNuevoProducto" class="btn btn-primary">Guardar producto</button>
+                    <button type="submit" form="formNuevoProducto" class="btn btn-primary"
+                        id="botonGuardarProducto">Guardar producto</button>
                 </div>
             </div>
         </div>

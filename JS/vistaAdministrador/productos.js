@@ -3,10 +3,16 @@ let productos = window.ColiberLibros.leer();
 const cuerpoTabla = document.querySelector(".productos-tabla tbody");
 const buscador = document.querySelector("#buscar-producto");
 const filtro = document.querySelector("#filtro-productos");
+const formularioProducto = document.querySelector("#formNuevoProducto");
+const modalProducto = document.querySelector("#modalNuevoProducto");
+const tituloModalProducto = document.querySelector("#modalNuevoProductoLabel");
+const botonGuardarProducto = document.querySelector("#botonGuardarProducto");
+const botonEliminarProducto = document.querySelector("#botonEliminarProducto");
 const resumen = document.querySelector(".productos-resumen");
 const botonesPaginacion = document.querySelectorAll(".productos-pagina");
 const botonAnterior = botonesPaginacion[0];
 const botonSiguiente = botonesPaginacion[1];
+let idProductoEnEdicion = null;
 const precioColombiano = new Intl.NumberFormat("es-CO", {
     style: "currency",
     currency: "COP",
@@ -93,13 +99,24 @@ function crearFilaProducto(producto) {
     const celdaAcciones = agregarCelda(fila, "");
     const botonEditar = document.createElement("button");
     botonEditar.type = "button";
-    botonEditar.className = "productos-accion-demo";
+    botonEditar.className = "productos-accion-editar";
     botonEditar.textContent = "Editar";
-    botonEditar.disabled = true;
-    botonEditar.title = "Acción de muestra";
+    botonEditar.setAttribute("aria-label", "Editar " + producto.nombre);
+    botonEditar.addEventListener("click", function () {
+        abrirEdicionProducto(producto.id);
+    });
     celdaAcciones.append(botonEditar);
 
     cuerpoTabla.append(fila);
+}
+
+function generarSiguienteIdProducto() {
+    const mayorId = productos.reduce(function (mayor, producto) {
+        const id = Number(producto.id);
+        return Number.isSafeInteger(id) && id > mayor ? id : mayor;
+    }, 0);
+
+    return mayorId + 1;
 }
 
 function filtrarProductos() {
@@ -213,8 +230,9 @@ async function agregarProducto(event) {
             foto = direccion.href;
         }
 
+        productos = window.ColiberLibros.leer();
         const producto = {
-            id: document.querySelector("#productoId").value.trim(),
+            id: generarSiguienteIdProducto(),
             foto: foto,
             categoria: document.querySelector("#productoCategoria").value.trim(),
             nombre: document.querySelector("#productoNombre").value.trim(),
@@ -223,12 +241,8 @@ async function agregarProducto(event) {
             stock: Number(document.querySelector("#productoStock").value)
         };
 
-        if (!producto.id || !producto.categoria || !producto.nombre || !producto.autor) {
+        if (!producto.categoria || !producto.nombre || !producto.autor) {
             throw new Error("Completa los datos del libro antes de guardarlo.");
-        }
-
-        if (productos.some(function (libro) { return String(libro.id) === producto.id; })) {
-            throw new Error("Ya existe un libro con ese ID.");
         }
 
         const nuevosProductos = [...productos, producto];
@@ -251,6 +265,162 @@ async function agregarProducto(event) {
             mensajeError.textContent = error.message || "No se pudo guardar el libro.";
         }
         mensajeError.hidden = false;
+    }
+}
+
+async function editarProducto(event) {
+    event.preventDefault();
+
+    const mensajeError = document.querySelector("#producto-error");
+    mensajeError.hidden = true;
+    const archivoActivo = document.querySelector("#fotoProductoArchivoPane").classList.contains("active");
+    const archivo = document.querySelector("#productoFotoArchivo").files[0];
+    const url = document.querySelector("#productoFotoUrl").value.trim();
+
+    try {
+        productos = window.ColiberLibros.leer();
+        const productoOriginal = productos.find(function (libro) {
+            return String(libro.id) === idProductoEnEdicion;
+        });
+
+        if (!productoOriginal) {
+            idProductoEnEdicion = null;
+            formularioProducto.reset();
+            mostrarProductos();
+            window.bootstrap.Modal.getOrCreateInstance(modalProducto).hide();
+            return;
+        }
+
+        let foto = productoOriginal.foto;
+        if (archivoActivo && archivo) {
+            foto = await prepararImagen(archivo);
+        } else if (!archivoActivo && url) {
+            const direccion = new URL(url);
+            if (!["http:", "https:"].includes(direccion.protocol)) {
+                throw new Error("La URL de la portada debe empezar por http:// o https://.");
+            }
+            foto = direccion.href;
+        }
+
+        const producto = {
+            id: productoOriginal.id,
+            foto: foto,
+            categoria: document.querySelector("#productoCategoria").value.trim(),
+            nombre: document.querySelector("#productoNombre").value.trim(),
+            autor: document.querySelector("#productoAutor").value.trim(),
+            precio: Number(document.querySelector("#productoPrecio").value),
+            stock: Number(document.querySelector("#productoStock").value)
+        };
+
+        if (!producto.categoria || !producto.nombre || !producto.autor) {
+            throw new Error("Completa los datos del libro antes de guardar.");
+        }
+
+        const productosActualizados = productos.map(function (libro) {
+            return String(libro.id) === idProductoEnEdicion ? producto : libro;
+        });
+        window.ColiberLibros.guardar(productosActualizados);
+        productos = productosActualizados;
+        idProductoEnEdicion = null;
+        mostrarProductos();
+        formularioProducto.reset();
+        window.bootstrap.Modal.getOrCreateInstance(modalProducto).hide();
+    } catch (error) {
+        if (error.name === "QuotaExceededError") {
+            mensajeError.textContent = "El navegador no tiene espacio para otra portada. Usa una URL o una imagen más pequeña.";
+        } else if (error instanceof TypeError) {
+            mensajeError.textContent = "La URL de la portada no es válida.";
+        } else {
+            mensajeError.textContent = error.message || "No se pudieron guardar los cambios.";
+        }
+        mensajeError.hidden = false;
+    }
+}
+
+function configurarEnvioProducto(manejador) {
+    formularioProducto.removeEventListener("submit", agregarProducto);
+    formularioProducto.removeEventListener("submit", editarProducto);
+    formularioProducto.addEventListener("submit", manejador);
+}
+
+function prepararModalProducto() {
+    formularioProducto.reset();
+    document.querySelector("#producto-error").hidden = true;
+    window.bootstrap.Tab.getOrCreateInstance(
+        document.querySelector("#fotoProductoArchivoTab")
+    ).show();
+}
+
+function abrirNuevoProducto() {
+    idProductoEnEdicion = null;
+    configurarEnvioProducto(agregarProducto);
+    prepararModalProducto();
+    tituloModalProducto.textContent = "Agregar Nuevo Producto";
+    botonGuardarProducto.textContent = "Guardar producto";
+    botonEliminarProducto.hidden = true;
+    window.bootstrap.Modal.getOrCreateInstance(modalProducto).show();
+}
+
+function abrirEdicionProducto(id) {
+    const producto = productos.find(function (libro) {
+        return String(libro.id) === String(id);
+    });
+    if (!producto) {
+        productos = window.ColiberLibros.leer();
+        mostrarProductos();
+        return;
+    }
+
+    prepararModalProducto();
+    idProductoEnEdicion = String(producto.id);
+    configurarEnvioProducto(editarProducto);
+    document.querySelector("#productoCategoria").value = producto.categoria;
+    document.querySelector("#productoNombre").value = producto.nombre;
+    document.querySelector("#productoAutor").value = producto.autor;
+    document.querySelector("#productoPrecio").value = producto.precio;
+    document.querySelector("#productoStock").value = producto.stock;
+    tituloModalProducto.textContent = "Editar producto";
+    botonGuardarProducto.textContent = "Guardar cambios";
+    botonEliminarProducto.hidden = false;
+    window.bootstrap.Modal.getOrCreateInstance(modalProducto).show();
+}
+
+function eliminarProducto() {
+    if (idProductoEnEdicion === null) {
+        return;
+    }
+
+    productos = window.ColiberLibros.leer();
+    const producto = productos.find(function (libro) {
+        return String(libro.id) === idProductoEnEdicion;
+    });
+    if (!producto) {
+        idProductoEnEdicion = null;
+        formularioProducto.reset();
+        mostrarProductos();
+        window.bootstrap.Modal.getOrCreateInstance(modalProducto).hide();
+        return;
+    }
+
+    if (!window.confirm('¿Eliminar "' + producto.nombre + '" del catálogo? Esta acción no se puede deshacer.')) {
+        return;
+    }
+
+    const productosActualizados = productos.filter(function (libro) {
+        return String(libro.id) !== idProductoEnEdicion;
+    });
+
+    try {
+        window.ColiberLibros.guardar(productosActualizados);
+        productos = productosActualizados;
+        idProductoEnEdicion = null;
+        mostrarProductos();
+        formularioProducto.reset();
+        window.bootstrap.Modal.getOrCreateInstance(modalProducto).hide();
+    } catch (error) {
+        document.querySelector("#producto-error").textContent =
+            error.message || "No se pudo eliminar el libro.";
+        document.querySelector("#producto-error").hidden = false;
     }
 }
 
@@ -279,7 +449,8 @@ botonSiguiente.addEventListener("click", function () {
     }
 });
 
-document.querySelector("#formNuevoProducto").addEventListener("submit", agregarProducto);
+document.querySelector("#botonNuevoProducto").addEventListener("click", abrirNuevoProducto);
+botonEliminarProducto.addEventListener("click", eliminarProducto);
 window.addEventListener("storage", function (event) {
     if (event.key === window.ColiberLibros.clave) {
         productos = window.ColiberLibros.leer();

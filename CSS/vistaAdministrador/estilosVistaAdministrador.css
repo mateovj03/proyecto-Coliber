@@ -198,13 +198,18 @@ img.productos-portada {
     color: #b33b55;
 }
 
-.productos-accion-demo {
+.productos-accion-editar {
     padding: 6px 11px;
     border: 1px solid #d8e0e8;
     border-radius: 7px;
     background: #f3f7fa;
-    color: #7b8899;
-    cursor: not-allowed;
+    color: #26334a;
+    cursor: pointer;
+}
+
+.productos-accion-editar:hover {
+    border-color: var(--azul);
+    color: var(--azul);
 }
 
 .productos-tabla .productos-vacio {
