@@ -110,6 +110,15 @@ function crearFilaProducto(producto) {
     cuerpoTabla.append(fila);
 }
 
+function generarSiguienteIdProducto() {
+    const mayorId = productos.reduce(function (mayor, producto) {
+        const id = Number(producto.id);
+        return Number.isSafeInteger(id) && id > mayor ? id : mayor;
+    }, 0);
+
+    return mayorId + 1;
+}
+
 function filtrarProductos() {
     const busqueda = buscador.value.trim().toLocaleLowerCase("es");
 
@@ -221,8 +230,9 @@ async function agregarProducto(event) {
             foto = direccion.href;
         }
 
+        productos = window.ColiberLibros.leer();
         const producto = {
-            id: document.querySelector("#productoId").value.trim(),
+            id: generarSiguienteIdProducto(),
             foto: foto,
             categoria: document.querySelector("#productoCategoria").value.trim(),
             nombre: document.querySelector("#productoNombre").value.trim(),
@@ -231,12 +241,8 @@ async function agregarProducto(event) {
             stock: Number(document.querySelector("#productoStock").value)
         };
 
-        if (!producto.id || !producto.categoria || !producto.nombre || !producto.autor) {
+        if (!producto.categoria || !producto.nombre || !producto.autor) {
             throw new Error("Completa los datos del libro antes de guardarlo.");
-        }
-
-        if (productos.some(function (libro) { return String(libro.id) === producto.id; })) {
-            throw new Error("Ya existe un libro con ese ID.");
         }
 
         const nuevosProductos = [...productos, producto];
@@ -297,7 +303,7 @@ async function editarProducto(event) {
         }
 
         const producto = {
-            id: document.querySelector("#productoId").value.trim(),
+            id: productoOriginal.id,
             foto: foto,
             categoria: document.querySelector("#productoCategoria").value.trim(),
             nombre: document.querySelector("#productoNombre").value.trim(),
@@ -306,15 +312,8 @@ async function editarProducto(event) {
             stock: Number(document.querySelector("#productoStock").value)
         };
 
-        if (!producto.id || !producto.categoria || !producto.nombre || !producto.autor) {
+        if (!producto.categoria || !producto.nombre || !producto.autor) {
             throw new Error("Completa los datos del libro antes de guardar.");
-        }
-
-        if (productos.some(function (libro) {
-            return String(libro.id) === producto.id
-                && String(libro.id) !== idProductoEnEdicion;
-        })) {
-            throw new Error("Ya existe un libro con ese ID.");
         }
 
         const productosActualizados = productos.map(function (libro) {
@@ -375,7 +374,6 @@ function abrirEdicionProducto(id) {
     prepararModalProducto();
     idProductoEnEdicion = String(producto.id);
     configurarEnvioProducto(editarProducto);
-    document.querySelector("#productoId").value = String(producto.id);
     document.querySelector("#productoCategoria").value = producto.categoria;
     document.querySelector("#productoNombre").value = producto.nombre;
     document.querySelector("#productoAutor").value = producto.autor;
