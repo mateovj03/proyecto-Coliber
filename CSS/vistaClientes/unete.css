@@ -46,3 +46,251 @@
     font-weight: 500;
     transition: color 0.2s ease-in-out;
 }
+
+/* Diseño Glassmorphism del inicio de sesión */
+#offcanvasUnete #panel-login .login-card {
+    position: relative;
+    isolation: isolate;
+    margin: 12px;
+    padding: 24px 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 22px;
+    background: rgba(224, 218, 245, 0.32);
+    box-shadow:
+        0 8px 32px rgba(77, 82, 160, 0.12),
+        inset 0 1px 2px rgba(255, 255, 255, 0.75),
+        inset 0 -1px 2px rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+
+/* Campos del formulario de inicio de sesión */
+#offcanvasUnete #panel-login .form-label {
+    margin-bottom: 8px;
+    color: #37366F;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+#offcanvasUnete #panel-login .form-control {
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid rgba(116, 111, 190, 0.22);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 2px 5px rgba(80, 80, 140, 0.04);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+#offcanvasUnete #panel-login .form-control:focus {
+    border-color: rgba(154, 120, 214, 0.75);
+    background: rgba(255, 255, 255, 0.35);
+    color: #34345F;
+    box-shadow:
+        0 0 0 3px rgba(154, 120, 214, 0.16),
+        inset 0 1px 3px rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+
+/* Botón de inicio de sesión */
+#offcanvasUnete #panel-login #form-login .btn-rovent-checkout {
+    min-height: 48px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(120deg, #7564C9, #9A78D6);
+    color: #FFFFFF;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    box-shadow: 0 5px 15px rgba(117, 100, 201, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#offcanvasUnete #panel-login #form-login .btn-rovent-checkout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(117, 100, 201, 0.35);
+}
+
+#offcanvasUnete #panel-login #form-login .btn-rovent-checkout:active {
+    transform: translateY(0);
+}
+
+
+/* Botón volver del inicio de sesión */
+#offcanvasUnete #panel-login .back-to-main-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(120deg, #7564C9, #9A78D6) !important;
+    color: #FFFFFF !important;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(117, 100, 201, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#offcanvasUnete #panel-login .back-to-main-btn:hover {
+    background: linear-gradient(120deg, #7564C9, #9A78D6) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(117, 100, 201, 0.35);
+}
+
+
+/* Reflejo de luz sobre el cristal */
+#offcanvasUnete #panel-login::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 22px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.32),
+            transparent 35%,
+            rgba(174, 151, 255, 0.06) 70%,
+            transparent
+        );
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.8),
+        inset 1px 0 1px rgba(255, 255, 255, 0.35);
+}
+
+
+/* Mantener el formulario por encima de las esferas */
+#offcanvasUnete #panel-login > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Botones con efecto Liquid Glass */
+#offcanvasUnete #panel-login #form-login .btn-rovent-checkout,
+#offcanvasUnete #panel-login .back-to-main-btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 13px;
+    background: rgba(154, 120, 214, 0.32) !important;
+    color: #62539E !important;
+    font-weight: 600;
+    box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.95),
+        inset 0 -1px 2px rgba(117, 100, 201, 0.12),
+        0 4px 12px rgba(117, 100, 201, 0.12);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Reflejo superior */
+#offcanvasUnete #panel-login #form-login .btn-rovent-checkout::before,
+#offcanvasUnete #panel-login .back-to-main-btn::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 8%;
+    width: 84%;
+    height: 45%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.28);
+    filter: blur(8px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Interacción */
+#offcanvasUnete #panel-login #form-login .btn-rovent-checkout:hover,
+#offcanvasUnete #panel-login .back-to-main-btn:hover {
+    background: rgba(117, 85, 190, 0.55) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow:
+        inset 0 1px 3px rgba(255, 255, 255, 1),
+        0 6px 16px rgba(117, 100, 201, 0.2);
+}
+
+#offcanvasUnete #panel-login #form-login .btn-rovent-checkout:active,
+#offcanvasUnete #panel-login .back-to-main-btn:active {
+    transform: scale(0.98);
+}
+/* Iconos dentro de los campos de inicio de sesión */
+#offcanvasUnete #panel-login .input-icon-wrapper {
+    position: relative;
+}
+
+#offcanvasUnete #panel-login .input-icon-wrapper i {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    color: #8065C8;
+    font-size: 17px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#offcanvasUnete #panel-login .input-icon-wrapper .form-control {
+    padding-left: 42px;
+}
+/* Imagen de Coliber en el inicio de sesión */
+#offcanvasUnete #panel-login .login-illustration {
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+#offcanvasUnete #panel-login .login-illustration img {
+    width: 80%;
+    max-width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+/* Movimiento suave de la imagen de Coliber */
+#offcanvasUnete #panel-login .login-illustration img {
+    animation: flotar-coliber 3s ease-in-out infinite;
+}
+
+@keyframes flotar-coliber {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+/* Pie del panel de inicio de sesión */
+#offcanvasUnete #panel-login .login-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+    margin-top: 2%;
+    padding-bottom: 2%;
+    color: #62539E;
+    font-size: 100%;
+    letter-spacing: normal;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    opacity: 0.50;
+    font-weight: 400;
+    transform: translateY(-15px);
+}
+
+#offcanvasUnete #panel-login .login-footer-separator {
+    color: #BB52C2;
+}

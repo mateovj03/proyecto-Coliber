@@ -49,7 +49,8 @@
                     data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-cart3"></i>
                     <span>Carrito</span>
-                    <span id="cart-counter" class="cart-count" aria-label="0 productos en el carrito">0</span> <!-- Contador de productos en el carrito -->
+                    <span id="cart-counter" class="cart-count" aria-label="0 productos en el carrito">0</span>
+                    <!-- Contador de productos en el carrito -->
                 </a>
 
             </div>
@@ -328,36 +329,38 @@
 
 
 
-             <!-- Modal carrito offcanvas.  -->
-        <aside class="offcanvas offcanvas-end text-bg-dark rovent-cart" data-bs-scroll="true" tabindex="-1"
-            id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-            <div class="offcanvas-header">
-                <div>
-                    <h2 class="offcanvas-title h4 mb-1" id="offcanvasWithBothOptionsLabel"><i class="bi bi-cart3 cart-header-icon" aria-hidden="true"></i>Mi Carrito</h2> <!-- Icono de carrito -->
-                    <span>Tus productos</span>
-                </div>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                    aria-label="Cerrar carrito"></button>
+    <!-- Modal carrito offcanvas.  -->
+    <aside class="offcanvas offcanvas-end text-bg-dark rovent-cart" data-bs-scroll="true" tabindex="-1"
+        id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+            <div>
+                <h2 class="offcanvas-title h4 mb-1" id="offcanvasWithBothOptionsLabel"><i
+                        class="bi bi-cart3 cart-header-icon" aria-hidden="true"></i>Mi Carrito</h2>
+                <!-- Icono de carrito -->
+                <span>Tus productos</span>
             </div>
-            <div class="offcanvas-body cart-items" id="cart-items" aria-live="polite">
-                <!-- JavaScript inserta aquí los productos y sus controles de cantidad. -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Cerrar carrito"></button>
+        </div>
+        <div class="offcanvas-body cart-items" id="cart-items" aria-live="polite">
+            <!-- JavaScript inserta aquí los productos y sus controles de cantidad. -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <strong id="cart-total">$0</strong>
             </div>
-            <div class="cart-footer">
-                <div class="cart-subtotal">
-                    <span>Subtotal</span>
-                    <strong id="cart-total">$0</strong>
-                </div>
-                <div class="text-center my-2">
-                    <small class="text-muted">🚚 Envío disponible a todo Colombia</small>
-                </div>
-                <button class="btn btn-outline-danger w-100" id="clear-cart-btn" type="button">
-                    Vaciar carrito
-                </button>
-                <button class="btn btn-rovent-checkout w-100" id="checkout-btn" type="button">
-                    Finalizar compra
-                </button>
+            <div class="text-center my-2">
+                <small class="text-muted">🚚 Envío disponible a todo Colombia</small>
             </div>
-        </aside>
+            <button class="btn btn-outline-danger w-100" id="clear-cart-btn" type="button">
+                Vaciar carrito
+            </button>
+            <button class="btn btn-rovent-checkout w-100" id="checkout-btn" type="button">
+                Finalizar compra
+            </button>
+        </div>
+    </aside>
 
 
     <!-- modal unete -->
@@ -542,33 +545,54 @@
         </div>
 
 
-        <!-- panel 3 inicio sesion -->
-         <div id="panel-login" class="auth-panel d-none">
-            <form id="form-login" class="mt-2">
-                <div class="mb-3">
-                    <label for="login-email" class="form-label ">Correo electrónico</label>
-                    <input type="email" class="form-control" id="login-email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="login-password" class="form-label ">Contraseña</label>
-                    <input type="password" class="form-control" id="login-password" required>
-                </div>
-                <button type="submit" class="btn btn-rovent-checkout w-100 mb-3">Entrar</button>
-            </form>
 
-            <div class="text-center mt-3">
-                <button type="button" class="back-to-main-btn btn btn-link text-light text-decoration-none d-inline-flex align-items-center gap-2">
-                    <i class="bi bi-arrow-left"></i> Volver
-                </button>
+        <!-- panel 3 inicio sesion -->
+        <div id="panel-login" class="auth-panel d-none">
+
+            <div class="login-card">
+                <form id="form-login" class="mt-2">
+
+                    <div class="mb-3">
+                        <label for="login-email" class="form-label">Correo electrónico</label>
+                        <div class="input-icon-wrapper">
+                            <i class="bi bi-envelope"></i>
+                            <input type="email" class="form-control" id="login-email" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="login-password" class="form-label">Contraseña</label>
+                        <div class="input-icon-wrapper">
+                            <i class="bi bi-lock"></i>
+                            <input type="password" class="form-control" id="login-password" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-rovent-checkout w-100 mb-3">
+                        Entrar
+                    </button>
+
+                </form>
+
+                <div class="text-center mt-3">
+                    <button type="button"
+                        class="back-to-main-btn btn btn-link text-light text-decoration-none d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-arrow-left"></i> Volver
+                    </button>
+                </div>
+            </div>
+
+            <div class="login-illustration">
+                <img src="../../IMG/Coliber leyendo.png" alt="Coliber leyendo">
+            </div>
+ <!-- Aviso de privacidad del inicio de sesión -->
+            <div class="login-footer">
+                <span>© 2026 Coliber</span>
+                <span class="login-footer-separator">·</span>
+                <span>Aviso de privacidad</span>
             </div>
         </div>
-
-
     </aside>
-
-
-
-
 
     <footer class="footer-coliber">
 
