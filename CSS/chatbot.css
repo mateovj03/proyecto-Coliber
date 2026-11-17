@@ -116,8 +116,10 @@
     letter-spacing: 0;
 }
 
-/* Oculta el asistente mientras está abierto el carrito */
+/* Oculta el asistente mientras está abierto el carrito o Únete */
 .carrito-abierto #chat-coliber,
-.carrito-abierto .n8n-chat {
+.carrito-abierto .n8n-chat,
+.unete-abierto #chat-coliber,
+.unete-abierto .n8n-chat {
     visibility: hidden;
 }
