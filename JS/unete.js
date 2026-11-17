@@ -8,6 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const panelRegistro = document.getElementById("panel-registro");
     const panelLogin = document.getElementById("panel-login");
     const offcanvasUnete = document.getElementById("offcanvasUnete");
+    const botonAyuda = document.getElementById("registro-ayuda-btn");
+    const ayudaPassword = document.getElementById("reg-password-help");
+    // mostrar lid contraseña
+    if (botonAyuda && ayudaPassword) {
+        botonAyuda.addEventListener("click", () => {
+            const mostrar = ayudaPassword.hidden;
+            ayudaPassword.hidden = !mostrar;
+            botonAyuda.setAttribute("aria-expanded", String(mostrar));
+        });
+    }
 
     function cambiarPanel(panelDestino) {
         if (panelPrincipal) panelPrincipal.classList.add("d-none");
@@ -36,7 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (offcanvasUnete) {
+        // Agregar clase cuan do se abre prerrequisitos
+        offcanvasUnete.addEventListener("show.bs.offcanvas", () => {
+            document.body.classList.add("unete-abierto");
+        });
         offcanvasUnete.addEventListener("hidden.bs.offcanvas", () => {
+            document.body.classList.remove("unete-abierto");
             cambiarPanel(panelPrincipal);
         });
     }

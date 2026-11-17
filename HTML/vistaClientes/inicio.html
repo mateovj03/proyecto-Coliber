@@ -366,19 +366,20 @@
     <!-- modal unete -->
 
     <aside class="offcanvas offcanvas-end text-bg-dark rovent-cart" data-bs-scroll="true" tabindex="-1"
-        id="offcanvasUnete" aria-labelledby="offcanvasUneteLabel">
+        id="offcanvasUnete" aria-label="Mi cuenta">
         <div class="offcanvas-header">
-            <div>
-                <h2 class="offcanvas-title h4 mb-1" id="offcanvasUneteLabel">Mi Cuenta</h2>
-                <span>Tu cuenta en Coliber</span>
-            </div>
-
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                aria-label="Cerrar"></button>
         </div>
         <!-- panel 1 de inicio de sesion  -->
         <div id="panel-principal" class="auth-panel">
-            <div class="d-grid gap-2 mt-3">
+            <div class="auth-choice-card">
+                <div class="registro-titulo">
+                    <i class="bi bi-book-half" aria-hidden="true"></i>
+                    <h3>Bienvenido a Coliber</h3>
+                    <p>Accede a tu cuenta o únete a nuestra comunidad lectora.</p>
+                </div>
+                <div class="d-grid gap-2 mt-3">
                 <button class="btn btn-outline-light w-100" id="register-btn" type="button">
                     Regístrate
                 </button>
@@ -389,7 +390,7 @@
                 <button class="btn btn-google w-100" id="google-login-btn" type="button">
                     <!-- svg de icono google -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48">
-                        <path fill="#EA4335"
+                        <path fill="#EA4335" 
                             d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
                         <path fill="#4285F4"
                             d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
@@ -400,52 +401,46 @@
                     </svg>
                     Continuar con Google
                 </button>
+                </div>
             </div>
         </div>
 
         <!-- panel 2 de registro -->
-        <div id="panel-registro" class="auth-panel d-none"><!-- d-done para ocultar o mostrar el panel -->
-            
-            <form id="form-registro" class="mt-2">
-
-                 <!-- Encabezado del Registro -->
+        <div id="panel-registro" class="auth-panel d-none">
+            <div class="registro-card">
+                <!-- Encabezado del registro -->
                 <div class="registro-titulo">
-                    <i class="bi bi-book-half"></i>
+                    <i class="bi bi-book-half" aria-hidden="true"></i>
                     <h3>Crea tu cuenta</h3>
                     <p>Únete a nuestra comunidad lectora y vive la experiencia Coliber.</p>
                 </div>
 
-                <div class="mb-3">
-                    <label for="reg-nombre" class="form-label ">Nombre Completo</label>
-                     <i class="bi bi-person"></i>
             <form id="form-registro" class="mt-2" novalidate>
                 <div class="mb-3">
-                    <label for="reg-nombre" class="form-label">Nombre</label>                    <input type="text" class="form-control" id="reg-nombre" required>
+                    <label for="reg-nombre" class="form-label">Nombre completo</label>
+                    <div class="registro-campo">
+                        <i class="bi bi-person" aria-hidden="true"></i>
+                        <input type="text" class="form-control" id="reg-nombre" autocomplete="name" required>
+                    </div>
                     <div class="invalid-feedback">Escribe tu nombre.</div>
                 </div>
-               
+
                 <div class="mb-3">
-
-                    <label for="reg-email" class="form-label ">Correo Electrónico</label>
-                    <i class="bi bi-envelope"></i>
-                    <input type="email" class="form-control" id="reg-email"  placeholder="Correo electrónico" autocomplete="email" required> 
-
                     <label for="reg-email" class="form-label">Correo electrónico</label>
-                    <input type="email" class="form-control" id="reg-email" required>
+                    <div class="registro-campo">
+                        <i class="bi bi-envelope" aria-hidden="true"></i>
+                        <input type="email" class="form-control" id="reg-email" autocomplete="email" required>
+                    </div>
                     <div class="invalid-feedback">Escribe un correo válido.</div>
-
                 </div>
-                
+
                 <div class="mb-3">
-
-                    <label for="reg-telefono" class="form-label ">Número de Celular</label>
-                    <i class="bi bi-telephone"></i>
-                    <input type="tel" class="form-control" id="reg-telefono" placeholder="Ej: +57 300 123 4567" autocomplete="tel" required>
-
-                    <label for="reg-telefono" class="form-label">Número de teléfono</label>
-                    <input type="tel" class="form-control" id="reg-telefono" placeholder="Ej: 3001234567" required>
+                    <label for="reg-telefono" class="form-label">Número de celular</label>
+                    <div class="registro-campo">
+                        <i class="bi bi-telephone" aria-hidden="true"></i>
+                        <input type="tel" class="form-control" id="reg-telefono" placeholder="Ej: 300 123 4567" autocomplete="tel" required>
+                    </div>
                     <div class="invalid-feedback">Ingresa un número de teléfono válido.</div>
-
                 </div>
 
                 <div class="mb-3">
@@ -462,11 +457,6 @@
                             title="Mínimo 8 caracteres, una mayúscula, un número y un carácter especial."
                             aria-describedby="reg-password-help" required>
 
-                        <button type="button" class="registro-ver-password"
-                            data-password-target="reg-password"
-                            aria-label="Mostrar contraseña">
-                            <i class="bi bi-eye-slash"></i>
-                        </button>
                     </div>
                 </div>
 
@@ -512,25 +502,15 @@
                             placeholder="Confirmar contraseña"
                             autocomplete="new-password" required>
 
-                        <button type="button" class="registro-ver-password"
-                            data-password-target="reg-confirm-password"
-                            aria-label="Mostrar confirmación de contraseña">
-                            <i class="bi bi-eye-slash"></i>
-                        </button>
                     </div>
                 </div>
 
                 <small id="reg-password-match" class="registro-coincidencia"></small>
 
-                <button type="submit" class="btn btn-rovent-checkout w-100 mb-3">
-                     <i class="bi bi-person-plus"></i>
-                      Crear cuenta
-                </button>
-                    <input type="password" class="form-control" id="reg-password" required>
-                    <div class="invalid-feedback">Escribe una contraseña.</div>
-                </div>
                 <p id="mensajeRegistro" class="small fw-semibold mb-2" role="status" aria-live="polite"></p>
-                <button type="submit" class="btn btn-rovent-checkout w-100 mb-3">Crear cuenta</button>
+                <button type="submit" class="btn btn-rovent-checkout w-100 mb-3">
+                    <i class="bi bi-person-plus" aria-hidden="true"></i> Crear cuenta
+                </button>
             </form>
 
             <div class="text-center mt-3">
@@ -542,6 +522,7 @@
                 </button>
             </div>
 
+            </div>
         </div>
 
 
@@ -550,6 +531,11 @@
         <div id="panel-login" class="auth-panel d-none">
 
             <div class="login-card">
+                <div class="registro-titulo">
+                    <i class="bi bi-person-circle" aria-hidden="true"></i>
+                    <h3>Inicia sesión</h3>
+                    <p>Accede a tu cuenta para continuar en Coliber.</p>
+                </div>
                 <form id="form-login" class="mt-2">
 
                     <div class="mb-3">
