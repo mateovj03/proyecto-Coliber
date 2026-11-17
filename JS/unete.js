@@ -62,6 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const correo = document.getElementById("reg-email");
         const telefono = document.getElementById("reg-telefono");
         const password = document.getElementById("reg-password");
+        const confirmarPassword = document.getElementById("reg-confirm-password");
+        const errorPassword = document.getElementById("reg-password-error");
+        const errorConfirmarPassword = document.getElementById("reg-confirm-password-error");
         const mensajeRegistro = document.getElementById("mensajeRegistro");
         const formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const claveRegistros = "coliber-registros-v1";
@@ -73,15 +76,23 @@ document.addEventListener("DOMContentLoaded", () => {
             const nombreValido = nombre.value.trim() !== "";
             const correoValido = formatoCorreo.test(correo.value.trim()) && correo.validity.valid;
             const telefonoValido = digitosTelefono !== "" && /^\d+$/.test(digitosTelefono);
-            const passwordValido = password.value.trim() !== "" && password.validity.valid;
+            const passwordValido = password.validity.valid;
+            const confirmarPasswordValido = confirmarPassword.value !== ""
+                && confirmarPassword.value === password.value;
 
             nombre.classList.toggle("is-invalid", !nombreValido);
             correo.classList.toggle("is-invalid", !correoValido);
             telefono.classList.toggle("is-invalid", !telefonoValido);
             password.classList.toggle("is-invalid", !passwordValido);
+            confirmarPassword.classList.toggle("is-invalid", !confirmarPasswordValido);
+            password.setAttribute("aria-invalid", String(!passwordValido));
+            confirmarPassword.setAttribute("aria-invalid", String(!confirmarPasswordValido));
+            errorPassword.textContent = password.value === "" ? "Ingresa una contraseña." : "La contraseña debe tener mínimo 8 caracteres, una mayúscula, un número y un carácter especial.";
+            errorConfirmarPassword.textContent = confirmarPassword.value === "" ? "Confirma tu contraseña." : "Las contraseñas no coinciden.";
 
             mensajeRegistro.classList.remove("text-success", "text-danger");
             if (!nombreValido || !correoValido || !telefonoValido || !passwordValido
+                || !confirmarPasswordValido
                 || !formularioRegistro.checkValidity()) {
                 mensajeRegistro.classList.add("text-danger");
                 mensajeRegistro.textContent = "Revisa los campos marcados e intenta nuevamente.";
@@ -117,8 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             formularioRegistro.reset();
-            [nombre, correo, telefono, password].forEach((campo) => {
+            [nombre, correo, telefono, password, confirmarPassword].forEach((campo) => {
                 campo.classList.remove("is-invalid");
+                campo.removeAttribute("aria-invalid");
             });
             mensajeRegistro.classList.remove("text-success", "text-danger");
             mensajeRegistro.textContent = "";
