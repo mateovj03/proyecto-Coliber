@@ -455,8 +455,11 @@
                             minlength="8"
                             pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9\s]).{8,}"
                             title="Mínimo 8 caracteres, una mayúscula, un número y un carácter especial."
-                            aria-describedby="reg-password-help" required>
+                            aria-describedby="reg-password-help reg-password-error" required>
 
+                    </div>
+                    <div class="invalid-feedback" id="reg-password-error">
+                        La contraseña debe tener mínimo 8 caracteres, una mayúscula, un número y un carácter especial.
                     </div>
                 </div>
 
@@ -500,12 +503,14 @@
                         <input type="password" class="form-control"
                             id="reg-confirm-password"
                             placeholder="Confirmar contraseña"
+                            aria-describedby="reg-confirm-password-error"
                             autocomplete="new-password" required>
 
                     </div>
+                    <div class="invalid-feedback" id="reg-confirm-password-error">
+                        Confirma tu contraseña.
+                    </div>
                 </div>
-
-                <small id="reg-password-match" class="registro-coincidencia"></small>
 
                 <p id="mensajeRegistro" class="small fw-semibold mb-2" role="status" aria-live="polite"></p>
                 <button type="submit" class="btn btn-rovent-checkout w-100 mb-3">
