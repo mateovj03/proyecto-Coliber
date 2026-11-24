@@ -460,26 +460,6 @@
                     <div class="invalid-feedback">Ingresa un número de teléfono válido.</div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="reg-password" class="form-label">Contraseña</label>
-
-
-                    <div class="registro-campo">
-                        <i class="bi bi-lock"></i>
-
-                        <input type="password" class="form-control" id="reg-password"
-                            placeholder="Contraseña" autocomplete="new-password"
-                            minlength="8"
-                            pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9\s]).{8,}"
-                            title="Mínimo 8 caracteres, una mayúscula, un número y un carácter especial."
-                            aria-describedby="reg-password-help reg-password-error" required>
-
-                    </div>
-                    <div class="invalid-feedback" id="reg-password-error">
-                        La contraseña debe tener mínimo 8 caracteres, una mayúscula, un número y un carácter especial.
-                    </div>
-                </div>
-
                 <!-- Requisitos de contraseña -->
 
                 <div class="registro-ayuda-contenedor">
@@ -511,6 +491,27 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="reg-password" class="form-label">Contraseña</label>
+                    <div class="registro-campo">
+                        <i class="bi bi-lock" aria-hidden="true"></i>
+                        <input type="password" class="form-control" id="reg-password"
+                            placeholder="Contraseña" autocomplete="new-password"
+                            minlength="8"
+                            pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9\s]).{8,}"
+                            title="Mínimo 8 caracteres, una mayúscula, un número y un carácter especial."
+                            aria-describedby="reg-password-help reg-password-error" required>
+                        <button type="button" class="toggle-password-btn" data-target="reg-password" aria-label="Mostrar contraseña" aria-pressed="false">
+                            <i class="bi bi-eye" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="invalid-feedback" id="reg-password-error">
+                        La contraseña debe tener mínimo 8 caracteres, una mayúscula, un número y un carácter especial.
+                    </div>
+                </div>
+
+                
+
+                <div class="mb-3">
                     <label for="reg-confirm-password" class="form-label">
                         Confirmar contraseña
                     </label>
@@ -523,7 +524,9 @@
                             placeholder="Confirmar contraseña"
                             aria-describedby="reg-confirm-password-error"
                             autocomplete="new-password" required>
-
+                        <button type="button" class="toggle-password-btn" data-target="reg-confirm-password" aria-label="Mostrar contraseña" aria-pressed="false">
+                            <i class="bi bi-eye" aria-hidden="true"></i>
+                        </button>
                     </div>
                     <div class="invalid-feedback" id="reg-confirm-password-error">
                         Confirma tu contraseña.

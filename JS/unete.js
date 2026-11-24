@@ -3,13 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const botonRegistro = document.getElementById("register-btn");
     const botonLogin = document.getElementById("login-btn");
     const backButtons = document.querySelectorAll(".back-to-main-btn");
-    
+
     const panelPrincipal = document.getElementById("panel-principal");
     const panelRegistro = document.getElementById("panel-registro");
     const panelLogin = document.getElementById("panel-login");
     const offcanvasUnete = document.getElementById("offcanvasUnete");
     const botonAyuda = document.getElementById("registro-ayuda-btn");
     const ayudaPassword = document.getElementById("reg-password-help");
+
+
     // mostrar lid contraseña
     if (botonAyuda && ayudaPassword) {
         botonAyuda.addEventListener("click", () => {
@@ -23,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (panelPrincipal) panelPrincipal.classList.add("d-none");
         if (panelRegistro) panelRegistro.classList.add("d-none");
         if (panelLogin) panelLogin.classList.add("d-none");
-        
+
         if (panelDestino) panelDestino.classList.remove("d-none");
     }
 
@@ -55,6 +57,31 @@ document.addEventListener("DOMContentLoaded", () => {
             cambiarPanel(panelPrincipal);
         });
     }
+
+
+    //Visibilidad de contraseña (ojito)
+    const togglePasswordButtons = document.querySelectorAll(".toggle-password-btn");
+    togglePasswordButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const targetId = btn.dataset.target;
+            const campoPassword = targetId ? document.getElementById(targetId) : null;
+            const icono = btn.querySelector("i");
+
+            if (!campoPassword || !icono) return;
+
+            const estabaOculta = campoPassword.type === "password";
+            campoPassword.type = estabaOculta ? "text" : "password";
+
+            icono.classList.toggle("bi-eye", !estabaOculta);
+            icono.classList.toggle("bi-eye-slash", estabaOculta);
+
+            btn.setAttribute("aria-pressed", String(estabaOculta));
+            btn.setAttribute(
+                "aria-label",
+                estabaOculta ? "Ocultar contraseña" : "Mostrar contraseña"
+            );
+        });
+    });
 
     const formularioRegistro = document.getElementById("form-registro");
     if (formularioRegistro) {

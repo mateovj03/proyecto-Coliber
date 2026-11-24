@@ -376,7 +376,35 @@
 }
 
 #offcanvasUnete #panel-registro input[type="password"] {
-    padding-right: 0;
+    padding-right: 44px;
+}
+
+#offcanvasUnete #panel-registro .toggle-password-btn {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border: 0;
+    background: transparent;
+    color: #8065C8;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#offcanvasUnete #panel-registro .toggle-password-btn:hover,
+#offcanvasUnete #panel-registro .toggle-password-btn:focus-visible {
+    color: #37366F; 
+    outline: none;
+}
+
+#offcanvasUnete #panel-registro .toggle-password-btn:focus-visible {
+    box-shadow: 0 0 0 3px rgba(154, 120, 214, 0.25);
+    border-radius: 6px;
 }
 
 #offcanvasUnete #panel-registro .form-control:focus {
