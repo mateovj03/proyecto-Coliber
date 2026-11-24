@@ -1,26 +1,4 @@
 
-
-/* boton registrate */
-#register-btn {
-    color: var(--azul);
-    border-color: var(--verde-morado);
-}
-
-#register-btn:hover {
-    color: var(--blanco);
-    background-color: var(--morado);
-}
-/* boton iniciar sesion */
-#login-btn {
-    color: var(--azul);
-    border-color: var(--verde-morado);
-}
-
-#login-btn:hover {
-    color: var(--blanco);
-    background-color: var(--morado);
-}
-
 /* boton google */
 .btn-google {
     background-color: var(--blanco) !important;
@@ -36,16 +14,12 @@
 }
 
 .btn-google:hover {
-    background-color: var(--verde-principal) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(117, 100, 201, 0.35);
 }
 
 
-/* Botón de volver atrás */
-.back-to-main-btn {
-    color: var(--azul) !important;
-    font-weight: 500;
-    transition: color 0.2s ease-in-out;
-}
+
 
 /* Diseño Glassmorphism del inicio de sesión */
 #offcanvasUnete #panel-login .login-card {
@@ -524,4 +498,14 @@
 
 .d-none{
     display: none;
+}
+
+#offcanvasUnete {
+    background-color: var(--gris) !important;
+    color: #37366F !important;
+}
+
+
+#offcanvasUnete .btn-close {
+    filter: none;
 }
