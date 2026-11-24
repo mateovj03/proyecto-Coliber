@@ -154,6 +154,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
+            alert("Registro exitoso, Bienvenido a Coliber");
+            formularioRegistro.reset();
+            [nombre, correo, telefono, password, confirmarPassword].forEach((campo) => {
+                campo.classList.remove("is-invalid");
+                campo.removeAttribute("aria-invalid");
+            });
+            mensajeRegistro.classList.remove("text-success", "text-danger");
+            mensajeRegistro.textContent = "";
+            if (offcanvasUnete && window.bootstrap) {
+                window.bootstrap.Offcanvas.getOrCreateInstance(offcanvasUnete).hide();
+            }
+
             formularioRegistro.reset();
             [nombre, correo, telefono, password, confirmarPassword].forEach((campo) => {
                 campo.classList.remove("is-invalid");
