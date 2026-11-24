@@ -126,72 +126,80 @@ function showSlide(index) {
 }
 
 // Flecha Derecha
-nextBtn.addEventListener("click", () => {
+if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
 
-    currentSlide++;
+        currentSlide++;
 
-    if (currentSlide >= slides.length) {
-        currentSlide = 0;
-    }
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
 
-    showSlide(currentSlide);
+        showSlide(currentSlide);
 
-});
+    });
+}
 
 // Flecha Izquierda
-prevBtn.addEventListener("click", () => {
+if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
 
-    currentSlide--;
+        currentSlide--;
 
-    if (currentSlide < 0) {
-        currentSlide = slides.length - 1;
-    }
+        if (currentSlide < 0) {
+            currentSlide = slides.length - 1;
+        }
 
-    showSlide(currentSlide);
+        showSlide(currentSlide);
 
-});
+    });
+}
 
 // Cambio automático cada 5 segundos
-setInterval(() => {
+if (slides.length > 0) {
 
-    currentSlide++;
+    setInterval(() => {
 
-    if (currentSlide >= slides.length) {
-        currentSlide = 0;
-    }
+        currentSlide++;
 
-    showSlide(currentSlide);
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
 
-}, 5000);
+        showSlide(currentSlide);
+
+    }, 5000);
+
+}
 
 // /* Mensaje de Agradecimiento al suscribirse a la Newsletter */
 
-
 const newsletterForm = document.querySelector(".newsletter-form");
-const mensajeExito   = document.querySelector(".newsletter-mensaje");
+const mensajeExito = document.querySelector(".newsletter-mensaje");
 
-newsletterForm.addEventListener("submit", async (e) => {
+if (newsletterForm) {
 
-    e.preventDefault();
+    newsletterForm.addEventListener("submit", async (e) => {
 
-    const datos = new FormData(newsletterForm);
+        e.preventDefault();
 
-    const respuesta = await fetch(newsletterForm.action, {
+        const datos = new FormData(newsletterForm);
 
-        method: "POST",
-        body: datos,
-        headers: {
-            Accept: "application/json"
+        const respuesta = await fetch(newsletterForm.action, {
+            method: "POST",
+            body: datos,
+            headers: {
+                Accept: "application/json"
+            }
+        });
+
+        if (respuesta.ok) {
+            newsletterForm.reset();
+
+            if (mensajeExito) {
+                mensajeExito.style.display = "block";
+            }
         }
-
     });
 
-    if (respuesta.ok) {
-
-        newsletterForm.reset();
-
-        mensajeExito.style.display = "block";
-
-    }
-
-});
+}

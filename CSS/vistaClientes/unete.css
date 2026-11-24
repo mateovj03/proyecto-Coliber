@@ -485,3 +485,15 @@
 #offcanvasUnete .offcanvas-header .btn-close {
     margin: 0;
 }
+
+/* Usuario*/
+.foto-usuario{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.d-none{
+    display: none;
+}
