@@ -55,36 +55,8 @@ if (googleBtn) {
     });
 
 }
-if (googleBtn) {
 
-    googleBtn.addEventListener("click", async () => {
-
-        try {
-
-            const provider = new GoogleAuthProvider();
-
-            const result = await signInWithPopup(auth, provider);
-
-            const user = result.user;
-
-            localStorage.setItem("usuarioNombre", user.displayName);
-            localStorage.setItem("usuarioCorreo", user.email);
-            localStorage.setItem("usuarioFoto", user.photoURL);
-            localStorage.setItem("usuarioUID", user.uid);
-
-            alert(`Bienvenido ${user.displayName}`);
-
-        } catch (error) {
-
-            console.error("ERROR FIREBASE:", error);
-
-        }
-
-    });
-
-}
-
-// Apartado para que solo salga el primer nombre del usuario y no el nombre completo
+// Apartado para que solo salga el primer nombre del usuario y no el nombre completo.
 
 document.addEventListener("DOMContentLoaded", () => {
 
