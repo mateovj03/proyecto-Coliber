@@ -39,17 +39,16 @@ if (googleBtn) {
 
             alert(`Bienvenido ${user.displayName}`);
 
-        } 
-        
+        }
+
         catch (error) {
+            if (error.code === "auth/popup-closed-by-user") {
+                console.log("El usuario canceló el inicio de sesión.");
+                return;
+            }
 
             console.error("ERROR FIREBASE:", error);
-
-            alert(
-                error.code + "\n" +
-                error.message
-            );
-
+            alert("No se pudo iniciar sesión con Google.");
         }
 
     });

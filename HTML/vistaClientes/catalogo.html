@@ -353,7 +353,7 @@
                     <h3>Inicia sesión</h3>
                     <p>Accede a tu cuenta para continuar en Coliber.</p>
                 </div>
-                <form id="form-login" class="mt-2">
+                <form id="form-login" class="mt-2" novalidate>
 
                     <div class="mb-3">
                         <label for="login-email" class="form-label">Correo electrónico</label>
@@ -361,6 +361,7 @@
                             <i class="bi bi-envelope"></i>
                             <input type="email" class="form-control" id="login-email" required>
                         </div>
+                        <div class="invalid-feedback" id="login-email-error">Ingresa un correo electronico valido.</div>
                     </div>
 
                     <div class="mb-3">
@@ -369,7 +370,10 @@
                             <i class="bi bi-lock"></i>
                             <input type="password" class="form-control" id="login-password" required>
                         </div>
+                        <div class="invalid-feedback" id="login-password-error">Ingresa tu contrasena.</div>
                     </div>
+
+                    <p id="mensajeLogin" class="small fw-semibold mb-2" role="status" aria-live="polite"></p>
 
                     <button type="submit" class="btn btn-rovent-checkout w-100 mb-3">
                         Entrar
@@ -476,6 +480,7 @@
     <script src="../../JS/vistaClientes/catalogo.js" defer></script>
     <script type="module" src="../../JS/chatbot.js"></script> <!-- Js chatbot -->
     <script type="module" src="../../JS/unete.js"></script>
+    <script src="../../JS/inicio-sesion.js" defer></script>
     <script type="module" src="../../JS/firebase-auth.js"></script>
     
 </body>

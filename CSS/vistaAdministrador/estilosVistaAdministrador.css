@@ -212,6 +212,26 @@ img.productos-portada {
     color: var(--azul);
 }
 
+.productos-acciones-fila {
+    display: flex;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.productos-accion-eliminar {
+    padding: 6px 11px;
+    border: 1px solid #f1c4cc;
+    border-radius: 7px;
+    background: #fff4f5;
+    color: #b33b55;
+    cursor: pointer;
+}
+
+.productos-accion-eliminar:hover {
+    border-color: #b33b55;
+    background: #fce9ec;
+}
+
 .productos-tabla .productos-vacio {
     padding: 50px 20px;
     color: #68788d;
