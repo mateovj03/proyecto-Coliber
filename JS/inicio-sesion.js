@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("usuarioCorreo", usuarioEncontrado.correo);
         mensajeLogin.textContent = "";
         formularioLogin.reset();
+        alert("Inicio de sesión exitoso.");
 
         const offcanvasUnete = document.getElementById("offcanvasUnete");
         if (offcanvasUnete && window.bootstrap) {
