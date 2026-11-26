@@ -7,7 +7,6 @@ const formularioProducto = document.querySelector("#formNuevoProducto");
 const modalProducto = document.querySelector("#modalNuevoProducto");
 const tituloModalProducto = document.querySelector("#modalNuevoProductoLabel");
 const botonGuardarProducto = document.querySelector("#botonGuardarProducto");
-const botonEliminarProducto = document.querySelector("#botonEliminarProducto");
 const resumen = document.querySelector(".productos-resumen");
 const botonesPaginacion = document.querySelectorAll(".productos-pagina");
 const botonAnterior = botonesPaginacion[0];
@@ -105,7 +104,18 @@ function crearFilaProducto(producto) {
     botonEditar.addEventListener("click", function () {
         abrirEdicionProducto(producto.id);
     });
-    celdaAcciones.append(botonEditar);
+
+    const botonEliminar = document.createElement("button");
+    botonEliminar.type = "button";
+    botonEliminar.className = "productos-accion-eliminar";
+    botonEliminar.textContent = "Eliminar";
+    botonEliminar.setAttribute("aria-label", "Eliminar " + producto.nombre);
+    botonEliminar.addEventListener("click", function () {
+        eliminarProducto(producto.id);
+    });
+
+    celdaAcciones.className = "productos-acciones-fila";
+    celdaAcciones.append(botonEditar, botonEliminar);
 
     cuerpoTabla.append(fila);
 }
@@ -357,7 +367,6 @@ function abrirNuevoProducto() {
     prepararModalProducto();
     tituloModalProducto.textContent = "Agregar Nuevo Producto";
     botonGuardarProducto.textContent = "Guardar producto";
-    botonEliminarProducto.hidden = true;
     window.bootstrap.Modal.getOrCreateInstance(modalProducto).show();
 }
 
@@ -381,24 +390,17 @@ function abrirEdicionProducto(id) {
     document.querySelector("#productoStock").value = producto.stock;
     tituloModalProducto.textContent = "Editar producto";
     botonGuardarProducto.textContent = "Guardar cambios";
-    botonEliminarProducto.hidden = false;
     window.bootstrap.Modal.getOrCreateInstance(modalProducto).show();
 }
 
-function eliminarProducto() {
-    if (idProductoEnEdicion === null) {
-        return;
-    }
-
+function eliminarProducto(id) {
     productos = window.ColiberLibros.leer();
+    const idProducto = String(id);
     const producto = productos.find(function (libro) {
-        return String(libro.id) === idProductoEnEdicion;
+        return String(libro.id) === idProducto;
     });
     if (!producto) {
-        idProductoEnEdicion = null;
-        formularioProducto.reset();
         mostrarProductos();
-        window.bootstrap.Modal.getOrCreateInstance(modalProducto).hide();
         return;
     }
 
@@ -407,16 +409,13 @@ function eliminarProducto() {
     }
 
     const productosActualizados = productos.filter(function (libro) {
-        return String(libro.id) !== idProductoEnEdicion;
+        return String(libro.id) !== idProducto;
     });
 
     try {
         window.ColiberLibros.guardar(productosActualizados);
         productos = productosActualizados;
-        idProductoEnEdicion = null;
         mostrarProductos();
-        formularioProducto.reset();
-        window.bootstrap.Modal.getOrCreateInstance(modalProducto).hide();
     } catch (error) {
         document.querySelector("#producto-error").textContent =
             error.message || "No se pudo eliminar el libro.";
@@ -450,7 +449,6 @@ botonSiguiente.addEventListener("click", function () {
 });
 
 document.querySelector("#botonNuevoProducto").addEventListener("click", abrirNuevoProducto);
-botonEliminarProducto.addEventListener("click", eliminarProducto);
 window.addEventListener("storage", function (event) {
     if (event.key === window.ColiberLibros.clave) {
         productos = window.ColiberLibros.leer();
